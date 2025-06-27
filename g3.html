@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+    <title>Mink | Mercado Digital</title>
+    <style>
+        * {
+            font-family: 'Montserrat', sans-serif;
+            box-sizing: border-box;
+        }
+        body {
+            /* Fondo con gradiente sutil para simular profundidad o un lienzo */
+            background: linear-gradient(to bottom, #f0f0f0 0%, #e0e0e0 100%);
+            color: #333333; /* Texto oscuro para contraste */
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            /* Aseguramos que no haya imágenes de fondo ni filtros de Glassmorphism */
+            background-image: none;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+        }
+        .container {
+            max-width: 480px;
+            margin: auto;
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+        /* Estilo Skeuomorphism para el encabezado del perfil */
+        #user-profile {
+            /* Simula un panel elevado o un marco */
+            background: linear-gradient(to bottom, #f5f5f5, #e0e0e0);
+            border: 1px solid #d0d0d0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2), /* Sombra exterior para levantar */
+                        inset 0 1px 0 rgba(255,255,255,0.8); /* Borde superior brillante */
+            border-radius: 12px; /* Bordes redondeados más realistas */
+            padding: 2.5rem 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            /* Eliminamos estilos de Glassmorphism y Neumorphism */
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+        }
+
+        h1 {
+            color: #1a2c3e; /* Título oscuro y definido */
+            font-weight: 700;
+            /* Sombra para dar un efecto de texto grabado o ligeramente elevado */
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.5), -1px -1px 2px rgba(0,0,0,0.2);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        p {
+            color: #444444; /* Párrafos en un tono de gris medio */
+            text-shadow: none; /* Sin sombra para el eslogan */
+        }
+        .btn-link {
+            /* Simula un botón físico convexo */
+            background: linear-gradient(to bottom, #ffffff 0%, #e9e9e9 100%);
+            border: 1px solid #cccccc;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2), /* Sombra para levantar el botón */
+                        inset 0 1px 0 rgba(255,255,255,0.7); /* Borde superior brillante */
+            color: #2c3e50; /* Texto oscuro */
+            transition: all 0.2s ease; /* Transición suave */
+            text-align: left;
+            justify-content: flex-start;
+            padding: 1rem 1.25rem;
+            border-radius: 8px; /* Bordes suaves de botón */
+            font-weight: 500;
+            /* Eliminamos estilos de Glassmorphism y Neumorphism */
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+        }
+        .btn-link:hover {
+            /* Efecto de botón "presionado" */
+            background: linear-gradient(to bottom, #e0e0e0 0%, #ffffff 100%); /* Gradiente invertido */
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.3), /* Sombra interior para hundir */
+                        0 1px 2px rgba(0,0,0,0.1); /* Sombra exterior muy sutil */
+            transform: translateY(1px); /* Ligeramente hacia abajo */
+            color: #000000; /* Texto más oscuro al presionar */
+        }
+        .floating-btn {
+            /* Simula un botón redondo de material suave, como goma o plástico */
+            background: radial-gradient(circle at 60% 30%, #008D96, #005F66); /* Gradiente esférico */
+            border: 1px solid #004d52;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3), /* Sombra exterior fuerte */
+                        inset 0 2px 5px rgba(255,255,255,0.5); /* Brillo superior */
+            color: white; /* Texto blanco */
+            border-radius: 9999px; /* Mantiene la forma redonda */
+            padding: 1rem 2rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            /* Eliminamos estilos de Glassmorphism y Neumorphism */
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+        }
+        .floating-btn:hover {
+            /* Efecto de botón "presionado" */
+            background: radial-gradient(circle at 60% 30%, #005F66, #008D96); /* Gradiente invertido */
+            box-shadow: inset 0 3px 8px rgba(0,0,0,0.5); /* Sombra interior para hundir */
+            transform: translateY(1px); /* Ligeramente hacia abajo */
+        }
+        .profile-circle {
+            /* Simula un medallón metálico o un botón grande */
+            background: linear-gradient(to bottom, #c0c0c0, #909090); /* Gradiente gris metálico */
+            border: 2px solid #606060; /* Borde más oscuro */
+            box-shadow: 0 5px 10px rgba(0,0,0,0.3), /* Sombra exterior */
+                        inset 0 2px 5px rgba(255,255,255,0.5), /* Brillo superior */
+                        inset 0 -2px 5px rgba(0,0,0,0.3); /* Sombra inferior interna */
+            color: #f0f0f0; /* Color claro para la inicial */
+            font-weight: 500;
+            width: 110px;
+            height: 110px;
+            font-size: 3.5rem;
+            border-radius: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1rem;
+            /* Eliminamos estilos de Glassmorphism y Neumorphism */
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+        }
+        .footer-link {
+            color: #555555; /* Color más discreto para el footer */
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s ease-in-out;
+            text-shadow: none; /* Sin sombra de texto */
+        }
+        .footer-link:hover {
+            color: #333333;
+        }
+        .iconify {
+            color: #444444; /* Color de icono por defecto */
+        }
+        .btn-link .iconify {
+            color: #444444; /* Color de icono en los botones */
+        }
+        .floating-btn .iconify {
+            color: white; /* Color de icono de WhatsApp */
+        }
+        
+        /* Estilos para escritorio: links centrados */
+        @media (min-width: 641px) {
+            .btn-link {
+                text-align: center;
+                justify-content: center;
+            }
+        }
+        
+        /* Estilos responsivos para el botón de WhatsApp */
+        @media (max-width: 640px) {
+            #whatsapp-button-container {
+                width: 90%;
+                bottom: 20px;
+            }
+            .floating-btn {
+                width: 100%;
+                padding: 14px 16px;
+                font-size: 1rem;
+                border-radius: 9999px;
+            }
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <main class="container mx-auto p-4 flex-grow">
+        <header id="user-profile" class="text-center mb-12 mt-8">
+            </header>
+
+        <section class="mb-8">
+            <div id="contact-links" class="grid grid-cols-1 gap-4">
+                </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-6">
+        <a href="index.html" class="footer-link inline-flex items-center transition-colors">
+            <img src="../icon.svg" alt="Mink Icon" class="w-5 h-5 mr-1">
+            <span class="font-normal">Mink | Mercado Digital</span>
+        </a>
+    </footer>
+
+    <div id="whatsapp-button-container" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50" style="display: none;">
+        <a id="whatsapp-link" href="#" target="_blank" class="floating-btn inline-flex items-center rounded-full whitespace-nowrap">
+            <span class="iconify mr-2" data-icon="mdi:whatsapp"></span>
+            Obtener Plantilla
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const userId = params.get('id');
+
+            if (!userId) {
+                document.getElementById('user-profile').innerHTML = `<p class="text-red-500">No se especificó un ID de usuario.</p>`;
+                return;
+            }
+
+            fetch('../users/users.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const decodedUserId = decodeURIComponent(userId);
+                    const user = data.find(u => u.identidad.id === decodedUserId);
+
+                    if (!user) {
+                        document.getElementById('user-profile').innerHTML = `<p class="text-red-500">Usuario no encontrado.</p>`;
+                        return;
+                    }
+
+                    // --- Renderizar Perfil ---
+                    document.title = user.identidad.nombre;
+                    const profileDiv = document.getElementById('user-profile');
+                    profileDiv.innerHTML = `
+                        <div class="w-28 h-28 mx-auto mb-5 rounded-full flex items-center justify-center profile-circle">
+                            ${user.identidad.nombre.charAt(0).toUpperCase()}
+                        </div>
+                        <h1 class="text-2xl font-bold text-center mb-1">${user.identidad.nombre}</h1>
+                        <p class="text-base text-center">${user.identidad.slogan}</p>
+                    `;
+
+                    // --- Renderizar Links de Contacto ---
+                    const linksContainer = document.getElementById('contact-links');
+                    linksContainer.innerHTML = ''; // Limpiar
+
+                    user.contacto.telefonos.forEach(tel => {
+                        linksContainer.innerHTML += `
+                            <a href="tel:${tel.telefono.replace(/\s/g, '')}" class="btn-link flex items-center rounded-lg font-medium">
+                                <span class="iconify mr-3 text-xl" data-icon="mdi:phone"></span>
+                                ${tel.nombre || 'Llamar'} ${tel.primario ? '(Principal)' : ''}
+                            </a>
+                        `;
+                    });
+
+                    user.contacto.emails.forEach(email => {
+                        linksContainer.innerHTML += `
+                             <a href="mailto:${email.email}" class="btn-link flex items-center rounded-lg font-medium">
+                                <span class="iconify mr-3 text-xl" data-icon="mdi:email"></span>
+                                ${email.nombre || 'Enviar Correo'}
+                            </a>
+                        `;
+                    });
+
+                    user.contacto.redesSociales.forEach(url => {
+                        let icon = 'mdi:web'; // Icono por defecto para web
+                        let networkName = 'Sitio Web';
+                        if (url.includes('facebook.com')) { icon = 'mdi:facebook'; networkName = 'Facebook'; }
+                        if (url.includes('instagram.com')) { icon = 'mdi:instagram'; networkName = 'Instagram'; }
+                        if (url.includes('linkedin.com')) { icon = 'mdi:linkedin'; networkName = 'LinkedIn'; }
+                        if (url.includes('twitter.com') || url.includes('x.com')) { icon = 'mdi:twitter'; networkName = 'Twitter/X'; }
+                        if (url.includes('youtube.com')) { icon = 'mdi:youtube'; networkName = 'YouTube'; }
+                        if (url.includes('whatsapp.com') || url.includes('wa.me')) { icon = 'mdi:whatsapp'; networkName = 'WhatsApp'; }
+
+                        linksContainer.innerHTML += `
+                             <a href="${url}" target="_blank" class="btn-link flex items-center rounded-lg font-medium">
+                                <span class="iconify mr-3 text-xl" data-icon="${icon}"></span>
+                                ${networkName}
+                            </a>
+                        `;
+                    });
+
+                    user.contacto.ubicacion.forEach(loc => {
+                        if(loc.link) {
+                            linksContainer.innerHTML += `
+                                <a href="${loc.link}" target="_blank" class="btn-link flex items-center rounded-lg font-medium">
+                                    <span class="iconify mr-3 text-xl" data-icon="mdi:map-marker"></span>
+                                    ${loc.label}
+                                </a>
+                            `;
+                        }
+                    });
+
+                    // --- Lógica del Botón de WhatsApp ---
+                    if (decodedUserId === 'j&l') {
+                        const waButtonContainer = document.getElementById('whatsapp-button-container');
+                        const waLink = document.getElementById('whatsapp-link');
+                        
+                        // Obtener el nombre del archivo actual (ej. "g1.html")
+                        const currentPage = window.location.pathname.split('/').pop(); 
+                        
+                        let messageText = 'Quisiera la plantilla';
+                        
+                        // Extraer el tipo (g/p) y el número del nombre del archivo
+                        const match = currentPage.match(/^([gp])(\d+)\.html$/);
+                        if (match) {
+                            const typeChar = match[1]; // 'g' o 'p'
+                            const num = match[2];     // '1', '2', etc.
+
+                            if (typeChar === 'g') {
+                                messageText += ' gratis';
+                            } else if (typeChar === 'p') {
+                                messageText += ' premium';
+                            }
+                            messageText += ` ${num}`;
+                        } else {
+                            // Fallback si el nombre del archivo no sigue el patrón esperado
+                            messageText += ' [desconocida]'; 
+                        }
+
+                        const message = encodeURIComponent(messageText);
+
+                        const jAndLUser = data.find(u => u.identidad.id === 'j&l');
+                        let phoneNumber = '';
+                        if (jAndLUser && jAndLUser.contacto.telefonos.length > 0) {
+                            const primaryPhone = jAndLUser.contacto.telefonos.find(tel => tel.primario);
+                            phoneNumber = primaryPhone ? primaryPhone.telefono.replace(/\s/g, '') : jAndLUser.contacto.telefonos[0].telefono.replace(/\s/g, '');
+                        }
+
+                        if (phoneNumber) {
+                            waLink.href = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+                            waButtonContainer.style.display = 'block';
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al cargar los datos:', error);
+                    document.getElementById('user-profile').innerHTML = `<p class="text-red-500">Hubo un error al cargar la información: ${error.message}. Asegúrate de que el archivo users.json exista en la ruta correcta.</p>`;
+                });
+        });
+    </script>
+</body>
+</html>

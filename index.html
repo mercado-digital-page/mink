@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+    <style>
+        * {
+            font-family: 'Montserrat', sans-serif;
+        }
+        :root {
+            --white-smoke: #F2F2F2;
+            --seashell: #F2EFE7;
+            --light-blue: #9ACBD0;
+            --cadet-blue: #48A6A7;
+            --teal: #006A71;
+            --ebony: #0D0D0D;
+        }
+        .floating-btn {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .exit-popup {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+        }
+        .blink {
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        .btn-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+    <title>Mink | Mercado Digital</title>
+</head>
+<body style="background-color: var(--seashell);">
+    <div class="py-2 text-center text-sm font-medium" style="background-color: var(--teal); color: white;">
+        🚀 <span id="counter">143</span> personas están explorando plantillas 
+        <span class="blink">|</span> <span id="timer">02:34</span> para descuento especial
+    </div>
+
+    <header class="container mx-auto px-4 py-8 flex justify-between items-center">
+        <div class="flex items-center">
+            <img src="../icon.svg" alt="Mercado Digital" class="w-8 h-8 mr-2">
+            <h1 class="text-xl font-bold" style="color: var(--ebony);">Mink | <span style="color: var(--teal);">Mercado Digital</span></h1>
+        </div>
+        <a href="catalog.html" class="text-sm font-medium flex items-center btn-icon" style="color: var(--teal);">
+            Ver Plantillas <span class="iconify ml-1" data-icon="mdi:arrow-right" style="font-size: 16px;"></span>
+        </a>
+    </header>
+
+    <main class="container mx-auto px-4">
+        <section class="text-center py-12">
+            <div class="inline-flex items-center px-4 py-2 rounded-full mb-4" style="background-color: var(--light-blue);">
+                <span class="iconify mr-2" data-icon="mdi:shield-check"></span>
+                <span class="text-sm font-medium" style="color: var(--ebony);">+20 negocios ya usan Mink</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-6" style="color: var(--teal);">Crea tu <span class="underline" style="text-decoration-color: var(--cadet-blue);">link profesional gratis</span></h1>
+            
+            <div class="max-w-3xl mx-auto p-6 rounded-xl mb-8 text-left">
+                <h2 class="text-xl font-bold mb-4 text-center" style="color: var(--teal);">¿Qué incluye tu Mink GRATIS?</h2>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 mb-4 max-w-lg mx-auto">
+                    <li class="flex items-start">
+                        <span class="iconify mr-2 mt-1" data-icon="mdi:check-circle" style="color: var(--cadet-blue);"></span>
+                        <span>4 plantillas básicas para elegir</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="iconify mr-2 mt-1" data-icon="mdi:check-circle" style="color: var(--cadet-blue);"></span>
+                        <span>Hasta 10 enlaces personalizados</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="iconify mr-2 mt-1" data-icon="mdi:check-circle" style="color: var(--cadet-blue);"></span>
+                        <span>URL personalizada</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="iconify mr-2 mt-1" data-icon="mdi:check-circle" style="color: var(--cadet-blue);"></span>
+                        <span>Soporte técnico básico</span>
+                    </li>
+                </ul>
+                
+                <div class="mt-6 p-3 rounded-lg max-w-xl mx-auto" style="background-color: #E9E5D9; border-left: 4px solid var(--teal);">
+                    <p class="text-sm italic" style="color: var(--ebony);">
+                        <span class="font-bold">¿Buscas algo más profesional?</span> Muchos usuarios terminan eligiendo nuestras plantillas <span class="font-medium" style="color: var(--teal);">Mink+</span> por sus diseños premium y características adicionales.
+                    </p>
+                </div>
+            </div>
+            
+            <a href="catalog.html" class="floating-btn inline-flex items-center px-8 py-4 rounded-full font-bold text-white mb-12 btn-icon" style="background-color: var(--teal);">
+                VER PLANTILLAS DISPONIBLES <span class="iconify ml-2" data-icon="mdi:arrow-right"></span>
+            </a>
+            
+            <div class="relative max-w-2xl mx-auto">
+                <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" 
+                     alt="Ejemplo Mink" class="rounded-xl shadow-lg w-full">
+                <div class="absolute -bottom-4 -right-4 px-4 py-2 rounded-lg font-bold text-white" style="background-color: var(--teal);">
+                    Incluye opciones GRATIS y PLUS
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16">
+            <h2 class="text-3xl font-bold mb-8 text-center" style="color: var(--teal);">Elige la opción perfecta para ti</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="border-2 border-transparent rounded-xl p-6 text-center">
+                    <h3 class="font-bold text-xl mb-4" style="color: var(--cadet-blue);">Mink Básico</h3>
+                    <div class="mb-4">
+                        <span class="text-4xl font-bold" style="color: var(--teal);">Gratis</span>
+                    </div>
+                    <ul class="space-y-3 mb-6 text-left">
+                        <li class="flex items-start">
+                            <span class="iconify mr-2 mt-1" data-icon="mdi:check" style="color: var(--cadet-blue);"></span>
+                            <span>4 plantillas sencillas</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="iconify mr-2 mt-1" data-icon="mdi:check" style="color: var(--cadet-blue);"></span>
+                            <span>Funcionalidades básicas</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="iconify mr-2 mt-1" data-icon="mdi:check" style="color: var(--cadet-blue);"></span>
+                            <span>Soporte por email</span>
+                        </li>
+                    </ul>
+                    <a href="catalog.html" class="w-full inline-flex justify-center items-center px-4 py-3 rounded-lg font-medium btn-icon" style="background-color: #E9E5D9; color: var(--teal);">
+                        Ver plantillas básicas <span class="iconify ml-2" data-icon="mdi:arrow-right"></span>
+                    </a>
+                </div>
+                
+                <div class="border-2 rounded-xl p-6 relative text-center" style="border-color: var(--teal); box-shadow: 0 0 25px rgba(0,106,113,0.15);">
+                    <div class="absolute -top-3 right-5 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold tracking-wider">
+                        POPULAR
+                    </div>
+                    <h3 class="font-bold text-xl mb-4" style="color: var(--teal);">Mink+</h3>
+                    <div class="mb-4">
+                        <span class="text-4xl font-bold" style="color: var(--teal);">S/7</span>
+                        <span class="text-lg line-through ml-2">S/14</span>
+                    </div>
+                    <ul class="space-y-3 mb-6 text-left">
+                        <li class="flex items-start">
+                            <span class="iconify mr-2 mt-1" data-icon="mdi:check" style="color: var(--teal);"></span>
+                            <span class="font-medium">4 plantillas premium exclusivas</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="iconify mr-2 mt-1" data-icon="mdi:check" style="color: var(--teal);"></span>
+                            <span class="font-medium">Estadísticas de visitas</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="iconify mr-2 mt-1" data-icon="mdi:check" style="color: var(--teal);"></span>
+                            <span class="font-medium">Soporte prioritario</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="iconify mr-2 mt-1" data-icon="mdi:check" style="color: var(--teal);"></span>
+                            <span class="font-medium">Personalización avanzada</span>
+                        </li>
+                    </ul>
+                    <a href="catalog.html#plus" class="w-full inline-flex justify-center items-center px-4 py-3 rounded-lg font-bold text-white btn-icon" style="background-color: var(--teal);">
+                        Ver plantillas PLUS <span class="iconify ml-2" data-icon="mdi:arrow-right"></span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <p class="text-sm italic max-w-md mx-auto" style="color: var(--ebony);">
+                    <span class="iconify inline-block" data-icon="mdi:lightbulb-on"></span> "El 78% de usuarios que prueban la versión gratis terminan actualizando a Mink+ por sus ventajas profesionales."
+                </p>
+            </div>
+        </section>
+
+        <section class="py-16">
+            <h3 class="text-center font-bold mb-8 text-3xl" style="color: var(--teal);">Comienza en 3 pasos simples</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="text-center p-4">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-2xl font-bold" style="background-color: #E9E5D9; color: var(--cadet-blue);">1</div>
+                    <h4 class="font-bold text-lg mb-2" style="color: var(--ebony);">Elige tu estilo</h4>
+                    <p class="text-sm" style="color: var(--ebony);">Gratis o Plus, tú decides</p>
+                </div>
+                <div class="text-center p-4">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-2xl font-bold" style="background-color: #E9E5D9; color: var(--cadet-blue);">2</div>
+                    <h4 class="font-bold text-lg mb-2" style="color: var(--ebony);">Personaliza</h4>
+                    <p class="text-sm" style="color: var(--ebony);">Agrega tus enlaces en minutos</p>
+                </div>
+                <div class="text-center p-4">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-2xl font-bold" style="background-color: var(--teal); color: white;">3</div>
+                    <h4 class="font-bold text-lg mb-2" style="color: var(--ebony);">¡Comparte!</h4>
+                    <p class="text-sm" style="color: var(--ebony);">En tu bio de Instagram, WhatsApp, etc.</p>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <a href="catalog.html" class="inline-flex items-center px-8 py-4 rounded-full font-bold text-white btn-icon" style="background-color: var(--teal);">
+                    COMENZAR AHORA <span class="iconify ml-2" data-icon="mdi:arrow-right"></span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <section class="py-16 text-center">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold mb-2" style="color: var(--teal);">¿Listo para tener tu link profesional?</h2>
+            <p class="mb-8 text-lg" style="color: var(--ebony);">Elige entre nuestras opciones gratuitas o descubre las ventajas de Mink+</p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="catalog.html" class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium btn-icon" style="background-color: #E9E5D9; color: var(--teal);">
+                    Ver versión GRATIS <span class="iconify ml-2" data-icon="mdi:arrow-right"></span>
+                </a>
+                <a href="catalog.html#plus" class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-bold text-white btn-icon" style="background-color: var(--teal);">
+                    Ver Mink+ PREMIUM <span class="iconify ml-2" data-icon="mdi:arrow-right"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div id="exitPopup" class="exit-popup bg-white p-4 rounded-lg shadow-xl" style="border: 2px solid var(--teal); max-width: 300px;">
+        <div class="flex">
+            <div class="mr-3">
+                <span class="iconify" data-icon="mdi:alert-circle" style="font-size: 32px; color: var(--teal);"></span>
+            </div>
+            <div>
+                <h4 class="font-bold mb-1" style="color: var(--ebony);">¡Espera!</h4>
+                <p class="text-sm mb-2" style="color: var(--ebony);">No te vayas sin ver nuestras <strong>plantillas premium</strong></p>
+                <a href="catalog.html#plus" class="inline-block w-full text-center px-3 py-2 rounded font-bold text-white" style="background-color: var(--teal);">
+                    MINK+
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-6 text-center" style="background-color: #E9E5D9;">
+        <p class="text-sm" style="color: var(--ebony);">© <span id="currentYear"></span> <strong>Mink | Mercado Digital</strong> - Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+        // Actualizar año automáticamente
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Contador de actividad
+        setInterval(function() {
+            const counter = document.getElementById('counter');
+            let current = parseInt(counter.textContent);
+            counter.textContent = current + Math.floor(Math.random() * 3);
+            
+            // Temporizador
+            const timer = document.getElementById('timer');
+            let [minutes, seconds] = timer.textContent.split(':').map(Number);
+            seconds--;
+            if (seconds < 0) {
+                seconds = 59;
+                minutes--;
+            }
+            if (minutes < 0) {
+                minutes = 2;
+                seconds = 59;
+            }
+            timer.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }, 3000); // Ralentizado para ser menos distractivo
+
+        // Lógica de Popup
+        let popupShown = false;
+        const showExitPopup = () => {
+            if (popupShown) return;
+            document.getElementById('exitPopup').style.display = 'block';
+            popupShown = true;
+            setTimeout(() => {
+                document.getElementById('exitPopup').style.display = 'none';
+            }, 5000);
+        };
+
+        // Mostrar popup al intentar salir
+        document.addEventListener('mouseout', (e) => {
+            if (e.clientY < 0) {
+                showExitPopup();
+            }
+        });
+        
+        // Mostrar popup al llegar al final de la página
+        window.addEventListener('scroll', () => {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 150) {
+                showExitPopup();
+            }
+        });
+    </script>
+</body>
+</html>

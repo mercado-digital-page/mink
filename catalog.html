@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+    <style>
+        * {
+            font-family: 'Montserrat', sans-serif;
+        }
+        :root {
+            --white-smoke: #F2F2F2;
+            --seashell: #F2EFE7;
+            --light-blue: #9ACBD0;
+            --cadet-blue: #48A6A7;
+            --teal: #006A71;
+            --ebony: #0D0D0D;
+        }
+        .mink-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .mink-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(13, 13, 13, 0.15);
+        }
+        .premium-badge {
+            background: linear-gradient(135deg, var(--teal), var(--cadet-blue));
+        }
+        .recommended-badge {
+            background: linear-gradient(135deg, #e53935, #c11b17);
+        }
+    </style>
+    <title>Catálogo de Plantillas | Mink</title>
+</head>
+<body style="background-color: var(--seashell);">
+    <header class="py-12 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-3" style="color: var(--teal);">Catálogo de Plantillas</h1>
+        <p class="text-lg max-w-2xl mx-auto" style="color: var(--ebony);">Encuentra el look perfecto para tu marca. Elige una plantilla gratuita o destaca con las ventajas de <strong>Mink+</strong>.</p>
+    </header>
+
+    <main class="container mx-auto px-4 pb-16">
+        <section id="plus" class="mb-16">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold" style="color: var(--teal);">Mink+ | Corporativo y Profesional</h2>
+                <p class="mt-2 text-md" style="color: var(--ebony);">Diseños exclusivos, más personalización y soporte prioritario.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+                
+                <div class="mink-card bg-white rounded-xl overflow-hidden shadow-md flex flex-col">
+                    <div class="relative">
+                        <img src="multimedia/Neumorphism.png" alt="Plantilla Neumorphism" class="w-full h-48 object-cover">
+                        <span class="premium-badge text-white text-xs font-bold px-3 py-1 rounded-full absolute top-3 right-3">MINK+</span>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col">
+                        <h3 class="text-lg font-bold mb-2" style="color: var(--ebony);">Estilo "Neumorphism"</h3>
+                        <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">Diseño con elementos suaves y texturizados que simulan objetos en 3D.</p>
+                        <a href="p2.html?id=j%26l" class="mt-auto w-full text-center px-4 py-2 rounded-lg font-bold text-white btn-icon" style="background-color: var(--teal);">Ver Plantilla</a>
+                    </div>
+                </div>
+
+                <div class="mink-card bg-white rounded-xl overflow-hidden shadow-md flex flex-col border-2" style="border-color: var(--teal);">
+                    <div class="relative">
+                        <img src="multimedia/Glassmorphism.png" alt="Plantilla Glassmorphism" class="w-full h-48 object-cover">
+                        <span class="recommended-badge text-white text-xs font-bold px-3 py-1 rounded-full absolute top-3 left-3">RECOMENDADA</span>
+                        <span class="premium-badge text-white text-xs font-bold px-3 py-1 rounded-full absolute top-3 right-3">MINK+</span>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col">
+                        <h3 class="text-lg font-bold mb-2" style="color: var(--ebony);">Estilo "Glassmorphism"</h3>
+                        <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">Efecto de cristal esmerilado con transparencia y profundidad visual.</p>
+                        <a href="p1.html?id=j%26l" class="mt-auto w-full text-center px-4 py-2 rounded-lg font-bold text-white btn-icon" style="background-color: var(--teal);">Ver Plantilla</a>
+                    </div>
+                </div>
+
+                <div class="mink-card bg-white rounded-xl overflow-hidden shadow-md flex flex-col">
+                    <div class="relative">
+                        <img src="multimedia/RetroVintage.png" alt="Plantilla Retro" class="w-full h-48 object-cover">
+                        <span class="premium-badge text-white text-xs font-bold px-3 py-1 rounded-full absolute top-3 right-3">MINK+</span>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col">
+                        <h3 class="text-lg font-bold mb-2" style="color: var(--ebony);">Estilo "Retro/Vintage"</h3>
+                        <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">Un viaje al pasado con elementos de diseño vintage y colores nostálgicos.</p>
+                        <a href="p3.html?id=j%26l" class="mt-auto w-full text-center px-4 py-2 rounded-lg font-bold text-white btn-icon" style="background-color: var(--teal);">Ver Plantilla</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16 py-10 rounded-xl" style="background-color: #E9E5D9;">
+            <div class="text-center mb-8">
+                <h3 class="text-3xl font-bold" style="color: var(--teal);">¿Por qué elegir Mink+?</h3>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto text-center">
+                <div class="flex flex-col items-center">
+                    <span class="iconify text-4xl mb-2" data-icon="mdi:chart-line" style="color: var(--teal);"></span>
+                    <p class="font-semibold" style="color: var(--ebony);">Estadísticas Avanzadas</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="iconify text-4xl mb-2" data-icon="mdi:palette-swatch" style="color: var(--teal);"></span>
+                    <p class="font-semibold" style="color: var(--ebony);">Más Personalización</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="iconify text-4xl mb-2" data-icon="mdi:shield-check" style="color: var(--teal);"></span>
+                    <p class="font-semibold" style="color: var(--ebony);">Soporte Prioritario</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="iconify text-4xl mb-2" data-icon="mdi:cancel" style="color: var(--teal);"></span>
+                    <p class="font-semibold" style="color: var(--ebony);">Sin nuestra marca</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold" style="color: var(--teal);">Mink Gratuito | Creativo y Esencial</h2>
+                <p class="mt-2 text-md" style="color: var(--ebony);">Funcionales, elegantes y perfectas para empezar.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+                <div class="mink-card bg-white rounded-xl overflow-hidden shadow-md flex flex-col">
+                    <img src="multimedia/Minimalist.png" alt="Plantilla Minimalist" class="w-full h-48 object-cover">
+                    <div class="p-5 flex-grow flex flex-col">
+                        <h3 class="text-lg font-bold mb-2" style="color: var(--ebony);">Estilo "Minimalist"</h3>
+                        <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">Diseño limpio y simple, centrado en la usabilidad y la eficiencia.</p>
+                        <a href="g1.html?id=j%26l" class="mt-auto w-full text-center px-4 py-2 rounded-lg font-medium text-white btn-icon" style="background-color: var(--cadet-blue);">Ver Plantilla</a>
+                    </div>
+                </div>
+
+                <div class="mink-card bg-white rounded-xl overflow-hidden shadow-md flex flex-col">
+                    <img src="multimedia/Flat.png" alt="Plantilla Flat" class="w-full h-48 object-cover">
+                    <div class="p-5 flex-grow flex flex-col">
+                        <h3 class="text-lg font-bold mb-2" style="color: var(--ebony);">Estilo "Flat"</h3>
+                        <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">Colores sólidos, bordes definidos y ausencia de efectos de profundidad.</p>
+                        <a href="g2.html?id=j%26l" class="mt-auto w-full text-center px-4 py-2 rounded-lg font-medium text-white btn-icon" style="background-color: var(--cadet-blue);">Ver Plantilla</a>
+                    </div>
+                </div>
+
+                <div class="mink-card bg-white rounded-xl overflow-hidden shadow-md flex flex-col">
+                    <img src="multimedia/Skeuomorphism.png" alt="Plantilla Skeuomorphism" class="w-full h-48 object-cover">
+                    <div class="p-5 flex-grow flex flex-col">
+                        <h3 class="text-lg font-bold mb-2" style="color: var(--ebony);">Estilo "Skeuomorphism"</h3>
+                        <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">Elementos que imitan objetos del mundo real para una interfaz familiar.</p>
+                        <a href="g3.html?id=j%26l" class="mt-auto w-full text-center px-4 py-2 rounded-lg font-medium text-white btn-icon" style="background-color: var(--cadet-blue);">Ver Plantilla</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-8 text-center" style="background-color: var(--teal); color: var(--white-smoke);">
+        <p>© <span id="currentYear"></span> <strong>Mink | Mercado Digital</strong> - Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

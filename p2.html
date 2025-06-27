@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+    <title>Mink | Mercado Digital</title>
+    <style>
+        * {
+            font-family: 'Montserrat', sans-serif;
+            box-sizing: border-box;
+        }
+        body {
+            /* Fondo de imagen para glassmorphism */
+            background-image: url('https://static.nationalgeographicla.com/files/styles/image_3200/public/green-iguana.jpg?w=1600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* La imagen se mantiene fija al desplazarse */
+            color: #2c3e50; /* Color de texto oscuro para mejor contraste */
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .container {
+            max-width: 480px;
+            margin: auto;
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+        /* Nuevo estilo Glassmorphism para el encabezado del perfil */
+        #user-profile {
+            background: rgba(255, 255, 255, 0.45); /* Blanco semi-transparente */
+            backdrop-filter: blur(15px); /* Efecto de desenfoque */
+            -webkit-backdrop-filter: blur(15px); /* Para compatibilidad con Safari */
+            border: 1px solid rgba(255, 255, 255, 0.6); /* Borde claro */
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3); /* Sombra para profundidad */
+            border-radius: 15px; /* Bordes redondeados para el panel de vidrio */
+            padding: 2.5rem 1.5rem; /* Padding interno para el contenido */
+            margin-bottom: 2rem; /* Espacio debajo del panel */
+            text-align: center; /* Asegura que el contenido esté centrado dentro del panel */
+        }
+
+        h1 {
+            color: #1a2c3e; /* Título oscuro para contraste */
+            font-weight: 700;
+            text-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+            margin-top: 1rem; /* Espacio superior para el título dentro del panel */
+            margin-bottom: 0.5rem;
+        }
+        p {
+            color: #444444; /* Párrafos más oscuros */
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+        }
+        .btn-link {
+            /* Estilo Glassmorphism con contraste mejorado */
+            background: rgba(255, 255, 255, 0.35); /* Mayor opacidad */
+            backdrop-filter: blur(12px); /* Ligeramente más desenfoque */
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5); /* Borde más visible */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Sombra más clara y visible */
+            color: #222222; /* Color de texto oscuro para contraste */
+            transition: all 0.3s ease;
+            text-align: left;
+            justify-content: flex-start;
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+        .btn-link:hover {
+            background: rgba(255, 255, 255, 0.45); /* Aún más opaco al pasar el ratón */
+            border-color: rgba(255, 255, 255, 0.7); /* Borde más pronunciado */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Sombra más definida */
+            transform: translateY(-3px); /* Mayor elevación */
+        }
+        .floating-btn {
+            /* Estilo Glassmorphism para el botón flotante con contraste mejorado */
+            background: rgba(0, 106, 113, 0.85); /* Mayor opacidad del color de marca */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 106, 113, 1); /* Borde sólido del color de marca */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+            color: white;
+            border-radius: 9999px;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .floating-btn:hover {
+            background: rgba(0, 106, 113, 1); /* Completamente opaco al pasar el ratón */
+            border-color: rgba(0, 106, 113, 1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            transform: translateY(-4px);
+        }
+        .profile-circle {
+            /* Círculo de perfil glassmorphism con contraste mejorado */
+            background: rgba(255, 255, 255, 0.55); /* Mayor opacidad y un poco más blanco */
+            backdrop-filter: blur(10px); /* Ligeramente menos blur para el círculo */
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.7); /* Borde más visible */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            color: #333333; /* Color de texto para el inicial */
+            font-weight: 500;
+            width: 110px;
+            height: 110px;
+            font-size: 3.5rem;
+            border-radius: 50%;
+            margin-left: auto; /* Centrar el círculo dentro del panel */
+            margin-right: auto;
+            margin-bottom: 1rem;
+        }
+        .footer-link {
+            color: rgba(0, 0, 0, 0.7); /* Color más oscuro para el footer para mejor contraste con fondo */
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s ease-in-out;
+            text-shadow: 0 0 3px rgba(255, 255, 255, 0.3); /* Sombra de texto para mejorar legibilidad */
+        }
+        .footer-link:hover {
+            color: #000000; /* Negro puro al pasar el ratón */
+        }
+        .iconify {
+            color: #333333; /* Color de icono más oscuro para los botones de enlace */
+        }
+        .btn-link .iconify {
+            margin-right: 1rem;
+        }
+        .floating-btn .iconify {
+            color: white; /* Icono de WhatsApp blanco */
+        }
+        
+        /* Estilos para escritorio: links centrados */
+        @media (min-width: 641px) {
+            .btn-link {
+                text-align: center;
+                justify-content: center;
+            }
+        }
+        
+        /* Estilos responsivos para el botón de WhatsApp */
+        @media (max-width: 640px) {
+            #whatsapp-button-container {
+                width: 90%;
+                bottom: 20px;
+            }
+            .floating-btn {
+                width: 100%;
+                padding: 14px 16px;
+                font-size: 1rem;
+                border-radius: 9999px;
+            }
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <main class="container mx-auto p-4 flex-grow">
+        <header id="user-profile" class="text-center mb-12 mt-8">
+            </header>
+
+        <section class="mb-8">
+            <div id="contact-links" class="grid grid-cols-1 gap-4">
+                </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-6">
+        <a href="index.html" class="footer-link inline-flex items-center transition-colors">
+            <img src="../icon.svg" alt="Mink Icon" class="w-5 h-5 mr-1">
+            <span class="font-normal">Mink | Mercado Digital</span>
+        </a>
+    </footer>
+
+    <div id="whatsapp-button-container" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50" style="display: none;">
+        <a id="whatsapp-link" href="#" target="_blank" class="floating-btn inline-flex items-center rounded-full whitespace-nowrap">
+            <span class="iconify mr-2" data-icon="mdi:whatsapp"></span>
+            Obtener Plantilla
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const userId = params.get('id');
+
+            if (!userId) {
+                document.getElementById('user-profile').innerHTML = `<p class="text-red-500">No se especificó un ID de usuario.</p>`;
+                return;
+            }
+
+            fetch('../users/users.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const decodedUserId = decodeURIComponent(userId);
+                    const user = data.find(u => u.identidad.id === decodedUserId);
+
+                    if (!user) {
+                        document.getElementById('user-profile').innerHTML = `<p class="text-red-500">Usuario no encontrado.</p>`;
+                        return;
+                    }
+
+                    // --- Renderizar Perfil ---
+                    document.title = user.identidad.nombre;
+                    const profileDiv = document.getElementById('user-profile');
+                    profileDiv.innerHTML = `
+                        <div class="w-28 h-28 mx-auto mb-5 rounded-full flex items-center justify-center profile-circle">
+                            ${user.identidad.nombre.charAt(0).toUpperCase()}
+                        </div>
+                        <h1 class="text-2xl font-bold text-center mb-1">${user.identidad.nombre}</h1>
+                        <p class="text-base text-center">${user.identidad.slogan}</p>
+                    `;
+
+                    // --- Renderizar Links de Contacto ---
+                    const linksContainer = document.getElementById('contact-links');
+                    linksContainer.innerHTML = ''; // Limpiar
+
+                    user.contacto.telefonos.forEach(tel => {
+                        linksContainer.innerHTML += `
+                            <a href="tel:${tel.telefono.replace(/\s/g, '')}" class="btn-link flex items-center rounded-lg font-medium">
+                                <span class="iconify mr-3 text-xl" data-icon="mdi:phone"></span>
+                                ${tel.nombre || 'Llamar'} ${tel.primario ? '(Principal)' : ''}
+                            </a>
+                        `;
+                    });
+
+                    user.contacto.emails.forEach(email => {
+                        linksContainer.innerHTML += `
+                             <a href="mailto:${email.email}" class="btn-link flex items-center rounded-lg font-medium">
+                                <span class="iconify mr-3 text-xl" data-icon="mdi:email"></span>
+                                ${email.nombre || 'Enviar Correo'}
+                            </a>
+                        `;
+                    });
+
+                    user.contacto.redesSociales.forEach(url => {
+                        let icon = 'mdi:web'; // Icono por defecto para web
+                        let networkName = 'Sitio Web';
+                        if (url.includes('facebook.com')) { icon = 'mdi:facebook'; networkName = 'Facebook'; }
+                        if (url.includes('instagram.com')) { icon = 'mdi:instagram'; networkName = 'Instagram'; }
+                        if (url.includes('linkedin.com')) { icon = 'mdi:linkedin'; networkName = 'LinkedIn'; }
+                        if (url.includes('twitter.com') || url.includes('x.com')) { icon = 'mdi:twitter'; networkName = 'Twitter/X'; }
+                        if (url.includes('youtube.com')) { icon = 'mdi:youtube'; networkName = 'YouTube'; }
+                        if (url.includes('whatsapp.com') || url.includes('wa.me')) { icon = 'mdi:whatsapp'; networkName = 'WhatsApp'; }
+
+                        linksContainer.innerHTML += `
+                             <a href="${url}" target="_blank" class="btn-link flex items-center rounded-lg font-medium">
+                                <span class="iconify mr-3 text-xl" data-icon="${icon}"></span>
+                                ${networkName}
+                            </a>
+                        `;
+                    });
+
+                    user.contacto.ubicacion.forEach(loc => {
+                        if(loc.link) {
+                            linksContainer.innerHTML += `
+                                <a href="${loc.link}" target="_blank" class="btn-link flex items-center rounded-lg font-medium">
+                                    <span class="iconify mr-3 text-xl" data-icon="mdi:map-marker"></span>
+                                    ${loc.label}
+                                </a>
+                            `;
+                        }
+                    });
+
+                    // --- Lógica del Botón de WhatsApp ---
+                    if (decodedUserId === 'j&l') {
+                        const waButtonContainer = document.getElementById('whatsapp-button-container');
+                        const waLink = document.getElementById('whatsapp-link');
+                        
+                        // Obtener el nombre del archivo actual (ej. "g1.html")
+                        const currentPage = window.location.pathname.split('/').pop(); 
+                        
+                        let messageText = 'Quisiera la plantilla';
+                        
+                        // Extraer el tipo (g/p) y el número del nombre del archivo
+                        const match = currentPage.match(/^([gp])(\d+)\.html$/);
+                        if (match) {
+                            const typeChar = match[1]; // 'g' o 'p'
+                            const num = match[2];     // '1', '2', etc.
+
+                            if (typeChar === 'g') {
+                                messageText += ' gratis';
+                            } else if (typeChar === 'p') {
+                                messageText += ' premium';
+                            }
+                            messageText += ` ${num}`;
+                        } else {
+                            // Fallback si el nombre del archivo no sigue el patrón esperado
+                            messageText += ' [desconocida]'; 
+                        }
+
+                        const message = encodeURIComponent(messageText);
+
+                        const jAndLUser = data.find(u => u.identidad.id === 'j&l');
+                        let phoneNumber = '';
+                        if (jAndLUser && jAndLUser.contacto.telefonos.length > 0) {
+                            const primaryPhone = jAndLUser.contacto.telefonos.find(tel => tel.primario);
+                            phoneNumber = primaryPhone ? primaryPhone.telefono.replace(/\s/g, '') : jAndLUser.contacto.telefonos[0].telefono.replace(/\s/g, '');
+                        }
+
+                        if (phoneNumber) {
+                            waLink.href = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+                            waButtonContainer.style.display = 'block';
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al cargar los datos:', error);
+                    document.getElementById('user-profile').innerHTML = `<p class="text-red-500">Hubo un error al cargar la información: ${error.message}. Asegúrate de que el archivo users.json exista en la ruta correcta.</p>`;
+                });
+        });
+    </script>
+</body>
+</html>

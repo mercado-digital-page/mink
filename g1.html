@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+    <title>Mink | Mercado Digital</title>
+    <style>
+        * {
+            font-family: 'Montserrat', sans-serif;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #FFFFFF; /* Blanco puro */
+            color: #333333; /* Gris oscuro para el texto principal */
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 480px; /* Ancho máximo ligeramente más estrecho para enfocar el contenido */
+        }
+        h1 {
+            color: #222222; /* Negro casi puro para títulos */
+            font-weight: 600; /* Un poco más de peso para destacar */
+        }
+        p {
+            color: #555555; /* Un gris medio para párrafos */
+        }
+        .btn-link {
+            transition: all 0.2s ease-in-out;
+            background-color: #F8F8F8; /* Un gris muy claro */
+            color: #333333;
+            border: 1px solid #EEEEEE; /* Borde sutil */
+            box-shadow: none;
+            /* Por defecto alineado a la izquierda para móvil */
+            text-align: left;
+            justify-content: flex-start; /* Alinea contenido a la izquierda */
+            padding: 1rem 1.25rem; /* Ajuste de padding */
+            border-radius: 8px; /* Bordes ligeramente redondeados */
+        }
+        .btn-link:hover {
+            background-color: #EFEFEF; /* Un gris ligeramente más oscuro al pasar el ratón */
+            transform: translateY(-1px); /* Sutil elevación */
+            border-color: #DDDDDD;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05); /* Sombra muy tenue */
+        }
+        .floating-btn {
+            animation: none; /* Eliminar la animación de pulso para un look más sereno */
+            background-color: #006A71; /* Mantener el color de la marca para este botón clave */
+            color: white;
+            border-radius: 9999px; /* Completamente redondo */
+            padding: 1rem 2rem;
+            font-weight: 500; /* Peso de fuente estándar */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 106, 113, 0.2); /* Sombra sutil pero presente */
+            transition: all 0.2s ease-in-out;
+        }
+        .floating-btn:hover {
+            background-color: #00555A; /* Un poco más oscuro al pasar el ratón */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 106, 113, 0.3);
+        }
+        .profile-circle {
+            background-color: #E0E0E0; /* Gris claro para el círculo del perfil */
+            color: #333333;
+            font-weight: 500;
+            width: 100px; /* Tamaño del círculo ligeramente reducido */
+            height: 100px;
+            font-size: 3rem; /* Tamaño de la letra ajustado */
+            border: 1px solid #DDDDDD; /* Borde sutil */
+        }
+        .footer-link {
+            color: #888888; /* Gris más claro para el footer */
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .footer-link:hover {
+            color: #555555;
+        }
+        .iconify {
+            color: #666666; /* Color de icono más suave para los botones de enlace por defecto */
+        }
+        .btn-link .iconify {
+            margin-right: 1rem; /* Espacio consistente entre icono y texto */
+        }
+        /* El icono de WhatsApp en el botón flotante siempre es blanco */
+        .floating-btn .iconify {
+            color: white;
+        }
+        
+        /* Estilos para escritorio: links centrados */
+        @media (min-width: 641px) { /* A partir de 'sm' breakpoint de Tailwind (640px + 1) */
+            .btn-link {
+                text-align: center;
+                justify-content: center; /* Centra el contenido horizontalmente */
+            }
+        }
+        
+        /* Estilos responsivos para el botón de WhatsApp */
+        @media (max-width: 640px) {
+            #whatsapp-button-container {
+                width: 90%; /* Ajuste de ancho para móviles */
+                bottom: 20px; /* Separación del borde inferior */
+            }
+            .floating-btn {
+                width: 100%;
+                padding: 14px 16px; /* Ajuste de padding */
+                font-size: 1rem;
+            }
+            .container {
+                padding: 1rem; /* Más padding en móviles */
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <main class="container mx-auto p-4 flex-grow">
+        <header id="user-profile" class="text-center mb-12 mt-8">
+            </header>
+
+        <section class="mb-8">
+            <div id="contact-links" class="grid grid-cols-1 gap-4">
+                </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-6">
+        <a href="index.html" class="footer-link inline-flex items-center transition-colors">
+            <img src="../icon.svg" alt="Mink Icon" class="w-5 h-5 mr-1"> <span class="font-normal">Mink | Mercado Digital</span> </a>
+    </footer>
+
+    <div id="whatsapp-button-container" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50" style="display: none;">
+        <a id="whatsapp-link" href="#" target="_blank" class="floating-btn inline-flex items-center rounded-full whitespace-nowrap">
+            <span class="iconify mr-2" data-icon="mdi:whatsapp"></span>
+            Obtener Plantilla
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const userId = params.get('id');
+
+            if (!userId) {
+                document.getElementById('user-profile').innerHTML = `<p class="text-red-500">No se especificó un ID de usuario.</p>`;
+                return;
+            }
+
+            fetch('../users/users.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const decodedUserId = decodeURIComponent(userId);
+                    const user = data.find(u => u.identidad.id === decodedUserId);
+
+                    if (!user) {
+                        document.getElementById('user-profile').innerHTML = `<p class="text-red-500">Usuario no encontrado.</p>`;
+                        return;
+                    }
+
+                    // --- Renderizar Perfil ---
+                    document.title = user.identidad.nombre;
+                    const profileDiv = document.getElementById('user-profile');
+                    profileDiv.innerHTML = `
+                        <div class="w-28 h-28 mx-auto mb-5 rounded-full flex items-center justify-center profile-circle">
+                            ${user.identidad.nombre.charAt(0).toUpperCase()}
+                        </div>
+                        <h1 class="text-2xl font-bold text-center mb-1">${user.identidad.nombre}</h1>
+                        <p class="text-base text-center">${user.identidad.slogan}</p>
+                    `;
+
+                    // --- Renderizar Links de Contacto ---
+                    const linksContainer = document.getElementById('contact-links');
+                    linksContainer.innerHTML = ''; // Limpiar
+
+                    user.contacto.telefonos.forEach(tel => {
+                        linksContainer.innerHTML += `
+                            <a href="tel:${tel.telefono.replace(/\s/g, '')}" class="btn-link flex items-center rounded-lg font-medium">
+                                <span class="iconify mr-3 text-xl" data-icon="mdi:phone"></span>
+                                ${tel.nombre || 'Llamar'} ${tel.primario ? '(Principal)' : ''}
+                            </a>
+                        `;
+                    });
+
+                    user.contacto.emails.forEach(email => {
+                        linksContainer.innerHTML += `
+                             <a href="mailto:${email.email}" class="btn-link flex items-center rounded-lg font-medium">
+                                <span class="iconify mr-3 text-xl" data-icon="mdi:email"></span>
+                                ${email.nombre || 'Enviar Correo'}
+                            </a>
+                        `;
+                    });
+
+                    user.contacto.redesSociales.forEach(url => {
+                        let icon = 'mdi:web'; // Icono por defecto para web
+                        let networkName = 'Sitio Web';
+                        if (url.includes('facebook.com')) { icon = 'mdi:facebook'; networkName = 'Facebook'; }
+                        if (url.includes('instagram.com')) { icon = 'mdi:instagram'; networkName = 'Instagram'; }
+                        if (url.includes('linkedin.com')) { icon = 'mdi:linkedin'; networkName = 'LinkedIn'; }
+                        if (url.includes('twitter.com') || url.includes('x.com')) { icon = 'mdi:twitter'; networkName = 'Twitter/X'; }
+                        if (url.includes('youtube.com')) { icon = 'mdi:youtube'; networkName = 'YouTube'; }
+                        if (url.includes('whatsapp.com') || url.includes('wa.me')) { icon = 'mdi:whatsapp'; networkName = 'WhatsApp'; }
+
+                        linksContainer.innerHTML += `
+                             <a href="${url}" target="_blank" class="btn-link flex items-center rounded-lg font-medium">
+                                <span class="iconify mr-3 text-xl" data-icon="${icon}"></span>
+                                ${networkName}
+                            </a>
+                        `;
+                    });
+
+                    user.contacto.ubicacion.forEach(loc => {
+                        if(loc.link) {
+                            linksContainer.innerHTML += `
+                                <a href="${loc.link}" target="_blank" class="btn-link flex items-center rounded-lg font-medium">
+                                    <span class="iconify mr-3 text-xl" data-icon="mdi:map-marker"></span>
+                                    ${loc.label}
+                                </a>
+                            `;
+                        }
+                    });
+
+                    // --- Lógica del Botón de WhatsApp ---
+                    if (decodedUserId === 'j&l') {
+                        const waButtonContainer = document.getElementById('whatsapp-button-container');
+                        const waLink = document.getElementById('whatsapp-link');
+                        
+                        // Obtener el nombre del archivo actual (ej. "g1.html")
+                        const currentPage = window.location.pathname.split('/').pop(); 
+                        
+                        let messageText = 'Quisiera la plantilla';
+                        
+                        // Extraer el tipo (g/p) y el número del nombre del archivo
+                        const match = currentPage.match(/^([gp])(\d+)\.html$/);
+                        if (match) {
+                            const typeChar = match[1]; // 'g' o 'p'
+                            const num = match[2];     // '1', '2', etc.
+
+                            if (typeChar === 'g') {
+                                messageText += ' gratis';
+                            } else if (typeChar === 'p') {
+                                messageText += ' premium';
+                            }
+                            messageText += ` ${num}`;
+                        } else {
+                            // Fallback si el nombre del archivo no sigue el patrón esperado
+                            messageText += ' [desconocida]'; 
+                        }
+
+                        const message = encodeURIComponent(messageText);
+
+                        const jAndLUser = data.find(u => u.identidad.id === 'j&l');
+                        let phoneNumber = '';
+                        if (jAndLUser && jAndLUser.contacto.telefonos.length > 0) {
+                            const primaryPhone = jAndLUser.contacto.telefonos.find(tel => tel.primario);
+                            phoneNumber = primaryPhone ? primaryPhone.telefono.replace(/\s/g, '') : jAndLUser.contacto.telefonos[0].telefono.replace(/\s/g, '');
+                        }
+
+                        if (phoneNumber) {
+                            waLink.href = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+                            waButtonContainer.style.display = 'block';
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al cargar los datos:', error);
+                    document.getElementById('user-profile').innerHTML = `<p class="text-red-500">Hubo un error al cargar la información: ${error.message}. Asegúrate de que el archivo users.json exista en la ruta correcta.</p>`;
+                });
+        });
+    </script>
+</body>
+</html>
