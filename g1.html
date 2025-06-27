@@ -115,7 +115,7 @@
                     linksContainer.innerHTML = '';
                     user.contacto.telefonos.forEach(tel => {
                         linksContainer.innerHTML += `
-                            <a href="tel:${tel.telefono.replace(/\s/g, '')}" class="btn-link flex items-center rounded-lg font-medium p-4 justify-center">
+                            <a href="tel:${tel.telefono.replace(/\s/g, '')}" class="btn-link flex items-center rounded-full font-medium p-4 justify-start">
                                 <span class="iconify mr-3 text-primary text-xl" data-icon="mdi:phone"></span>
                                 ${tel.nombre || 'Llamar'} ${tel.primario ? '(Principal)' : ''}
                             </a>
@@ -123,7 +123,7 @@
                     });
                     user.contacto.emails.forEach(email => {
                         linksContainer.innerHTML += `
-                             <a href="mailto:${email.email}" class="btn-link flex items-center rounded-lg font-medium p-4 justify-center">
+                             <a href="mailto:${email.email}" class="btn-link flex items-center rounded-full font-medium p-4 justify-start">
                                 <span class="iconify mr-3 text-primary text-xl" data-icon="mdi:email"></span>
                                 ${email.nombre || 'Enviar Correo'}
                             </a>
@@ -139,7 +139,7 @@
                         if (url.includes('youtube.com')) { icon = 'mdi:youtube'; networkName = 'YouTube'; }
                         if (url.includes('whatsapp.com') || url.includes('wa.me')) { icon = 'mdi:whatsapp'; networkName = 'WhatsApp'; }
                         linksContainer.innerHTML += `
-                             <a href="${url}" target="_blank" class="btn-link flex items-center rounded-lg font-medium p-4 justify-center">
+                             <a href="${url}" target="_blank" class="btn-link flex items-center rounded-full font-medium p-4 justify-left">
                                 <span class="iconify mr-3 text-primary text-xl" data-icon="${icon}"></span>
                                 ${networkName}
                             </a>
@@ -148,7 +148,7 @@
                     user.contacto.ubicacion.forEach(loc => {
                         if(loc.link) {
                             linksContainer.innerHTML += `
-                                <a href="${loc.link}" target="_blank" class="btn-link flex items-center rounded-lg font-medium p-4 justify-center">
+                                <a href="${loc.link}" target="_blank" class="btn-link flex items-center rounded-full font-medium p-4 justify-left">
                                     <span class="iconify mr-3 text-primary text-xl" data-icon="mdi:map-marker"></span>
                                     ${loc.label}
                                 </a>

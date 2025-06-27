@@ -175,13 +175,6 @@
         </section>
     </main>
 
-    <footer class="text-center py-6">
-        <a href="index.html" class="footer-link inline-flex items-center transition-colors">
-            <img src="../icon.svg" alt="Mink Icon" class="w-5 h-5 mr-1">
-            <span class="font-normal">Mink | Mercado Digital</span>
-        </a>
-    </footer>
-
     <div id="whatsapp-button-container" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50" style="display: none;">
         <a id="whatsapp-link" href="#" target="_blank" class="floating-btn inline-flex items-center rounded-full whitespace-nowrap">
             <span class="iconify mr-2" data-icon="mdi:whatsapp"></span>
@@ -300,18 +293,13 @@
                             }
                             messageText += ` ${num}`;
                         } else {
-                            // Fallback si el nombre del archivo no sigue el patrón esperado
                             messageText += ' [desconocida]'; 
                         }
 
                         const message = encodeURIComponent(messageText);
 
                         const jAndLUser = data.find(u => u.identidad.id === 'j&l');
-                        let phoneNumber = '';
-                        if (jAndLUser && jAndLUser.contacto.telefonos.length > 0) {
-                            const primaryPhone = jAndLUser.contacto.telefonos.find(tel => tel.primario);
-                            phoneNumber = primaryPhone ? primaryPhone.telefono.replace(/\s/g, '') : jAndLUser.contacto.telefonos[0].telefono.replace(/\s/g, '');
-                        }
+                        let phoneNumber = '51908788502';
 
                         if (phoneNumber) {
                             waLink.href = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
