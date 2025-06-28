@@ -11,9 +11,9 @@
     <title>Mink | Mercado Digital</title>
     <style>
         :root {
-            --primary-dark: #4361ee; /* Valor por defecto, será sobrescrito por JS */
+            --primary: #4361ee; /* Valor por defecto, será sobrescrito por JS */
             --primary-light: #edf2ff; /* Valor por defecto, será sobrescrito por JS */
-            --background: #f0f0f0;
+            --background: #ffffff;
             --text-primary: #1f2937;
             --text-secondary: #6c757d;
             --border: #e5e7eb;
@@ -27,18 +27,10 @@
             background-color: var(--background);
             color: var(--text-primary);
             line-height: 1.6;
-            background-image: linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.5)), 
-                              url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgwLDAsMCwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
         }
         .container {
             max-width: 480px;
             padding: 0 1.5rem;
-            /* Se eliminan el color de fondo, la sombra y los bordes para que no parezca un contenedor */
-            /* background-color: white; */ 
-            min-height: 100vh;
-            /* box-shadow: 0 0 30px rgba(0,0,0,0.1); */
-            /* border-left: 1px solid rgba(0,0,0,0.05); */
-            /* border-right: 1px solid rgba(0,0,0,0.05); */
         }
         h1 {
             color: var(--text-primary);
@@ -49,132 +41,82 @@
             color: var(--text-secondary);
             font-weight: 400;
         }
-
-        /* Botones estilo Metálico con colorDark */
         .btn-link {
-            background: linear-gradient(to bottom, var(--primary-dark), var(--primary-dark));
-            color: white;
-            border: 1px solid rgba(0,0,0,0.2);
-            border-bottom: 3px solid rgba(0,0,0,0.3);
+            background-color: var(--background); /* Fondo blanco para estilo flat */
+            color: var(--text-primary);
+            border: 1px solid var(--border); /* Borde sutil y definido */
             text-align: left;
             justify-content: flex-start;
-            padding: 1.1rem 1.5rem;
+            padding: 1rem; /* Ajustado para hacerlo más cuadrado */
             font-weight: 600;
-            margin-bottom: 10px;
-            transition: all 0.2s ease-in-out;
+            transition: all 0.25s ease-in-out; /* Transición más suave */
             display: flex;
             align-items: center;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        .btn-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 50%;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
-            border-radius: 8px 8px 0 0;
+            border-radius: 0.5rem; /* Añadido border-radius amigable */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Sombra sutil para flat */
+            width: 100%; /* Asegura que ocupe todo el ancho */
+            margin-bottom: 1rem; /* Espacio entre botones */
         }
         .btn-link:hover {
-            background: linear-gradient(to bottom, var(--primary-dark), var(--primary-dark));
-            border-color: rgba(0,0,0,0.3);
-            color: white;
-            transform: translateY(-2px);
-            border-bottom-width: 2px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.4);
-        }
-        .btn-link:active {
-            transform: translateY(1px);
-            border-bottom-width: 1px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            background-color: var(--primary); /* Fondo del color primario en hover */
+            border-color: var(--primary);
+            color: white; /* Texto blanco en hover */
+            transform: translateY(-2px); /* Efecto en hover */
         }
         .btn-link .iconify {
             transition: color 0.15s ease;
-            color: white;
-            filter: drop-shadow(0 1px 1px rgba(0,0,0,0.3));
+            color: var(--primary); /* Color primario para los íconos */
+        }
+        .btn-link:hover .iconify {
+            color: white; /* Ícono blanco en hover */
         }
 
-        /* Botón Flotante (WhatsApp) */
+        /* Nuevo estilo para el botón destacado */
+        .btn-highlight {
+            background-color: var(--primary) !important;
+            color: white !important;
+            border-color: var(--primary) !important;
+        }
+        .btn-highlight .iconify {
+            color: white !important;
+        }
+        .btn-highlight:hover {
+            opacity: 0.9;
+        }
+
         .floating-btn {
-            background: linear-gradient(to bottom, var(--primary-dark), var(--primary-dark));
+            background-color: var(--primary);
             color: white;
             padding: 1.1rem 2.2rem;
             font-weight: 600;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(0,0,0,0.2);
-            border-bottom: 3px solid rgba(0,0,0,0.3);
-            transition: all 0.2s ease-in-out;
+            border-radius: 0.5rem;
+            transition: all 0.25s ease-in-out; /* Transición más suave */
             letter-spacing: 0.02em;
-            border-radius: 50px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        .floating-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 40%;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
-            border-radius: 50px 50px 0 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada para flotar */
         }
         .floating-btn:hover {
-            background: linear-gradient(to bottom, var(--primary-dark), var(--primary-dark));
-            border-color: rgba(0,0,0,0.3);
-            opacity: 0.95;
+            background-color: var(--primary); /* Mantener color primario, solo cambiar opacidad */
+            opacity: 0.9;
             color: white;
-            transform: translateY(-2px);
-            border-bottom-width: 2px;
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px); /* Efecto en hover */
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
         }
-        .floating-btn:active {
-            transform: translateY(1px);
-            border-bottom-width: 1px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        }
-        .floating-btn .iconify {
-            color: white;
-            margin-right: 0.8rem;
-            font-size: 1.3em;
-            filter: drop-shadow(0 1px 1px rgba(0,0,0,0.3));
-        }
-        
-        /* Círculo de Perfil */
         .profile-circle {
-            background-color: var(--primary-light);
-            color: var(--primary-dark);
+            background-color: var(--primary-light); /* Fondo del color claro */
+            color: var(--primary); /* Texto del color oscuro para contraste */
             font-weight: 600;
             width: 110px;
             height: 110px;
             font-size: 3rem;
-            border: 3px solid var(--primary-dark);
-            border-radius: 50%;
+            border: none;
+            border-radius: 0.5rem; /* Añadido border-radius amigable */
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1), inset 0 0 20px rgba(0,0,0,0.05);
-            position: relative;
-            overflow: hidden;
         }
-        .profile-circle::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 50%;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.4), rgba(255,255,255,0.1));
-            border-radius: 50% 50% 0 0;
-        }
-
         .footer-link {
             color: var(--text-secondary);
             text-decoration: none;
@@ -182,15 +124,20 @@
             transition: color 0.15s ease;
         }
         .footer-link:hover {
-            color: var(--primary-dark);
+            color: var(--primary);
         }
         .iconify {
-            color: white;
+            color: var(--primary); /* Color primario por defecto para íconos */
             transition: color 0.15s ease;
         }
         .btn-link .iconify {
             margin-right: 1.2rem;
             font-size: 1.4em;
+        }
+        .floating-btn .iconify {
+            color: white;
+            margin-right: 0.8rem;
+            font-size: 1.3em;
         }
         
         /* Estilos responsivos */
@@ -208,6 +155,14 @@
                 padding: 1rem;
             }
         }
+        /* Ajuste para desktop para centrar botones link */
+        @media (min-width: 641px) {
+            .btn-link {
+                /* No es necesario centrar si es una lista */
+                justify-content: flex-start;
+                text-align: left;
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
@@ -217,17 +172,10 @@
         </header>
 
         <section class="mb-10">
-            <div id="contact-links" class="grid grid-cols-1 gap-2">
+            <div id="contact-links" class="flex flex-col gap-4">
             </div>
         </section>
     </main>
-
-    <footer class="text-center py-8 text-base">
-        <a href="index.html" class="footer-link inline-flex items-center">
-            <img src="../icon.svg" alt="Mink Icon" class="w-6 h-6 mr-2"> 
-            <span>Mink | Mercado Digital</span>
-        </a>
-    </footer>
 
     <div id="whatsapp-button-container" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50" style="display: none;">
         <a id="whatsapp-link" href="#" target="_blank" class="floating-btn inline-flex items-center">
@@ -264,7 +212,8 @@
 
                     // --- Aplicar paleta de colores dinámicamente ---
                     const [colorDark, colorLight] = user.identidad.paletaColores;
-                    document.documentElement.style.setProperty('--primary-dark', colorDark);
+                    document.documentElement.style.setProperty('--primary', colorDark);
+                    document.documentElement.style.setProperty('--primary-dark', colorDark); 
                     document.documentElement.style.setProperty('--primary-light', colorLight);
                     
                     // --- Renderizar Perfil ---
@@ -280,24 +229,25 @@
 
                     // --- Renderizar Links de Contacto ---
                     const linksContainer = document.getElementById('contact-links');
-                    linksContainer.innerHTML = '';
+                    let allLinksHtml = [];
 
+                    // Generar todos los enlaces
                     user.contacto.telefonos.forEach(tel => {
-                        linksContainer.innerHTML += `
+                        allLinksHtml.push(`
                             <a href="tel:${tel.telefono.replace(/\s/g, '')}" class="btn-link">
                                 <span class="iconify" data-icon="mdi:phone"></span>
                                 ${tel.nombre || 'Llamar'} ${tel.primario ? '(Principal)' : ''}
                             </a>
-                        `;
+                        `);
                     });
 
                     user.contacto.emails.forEach(email => {
-                        linksContainer.innerHTML += `
+                        allLinksHtml.push(`
                              <a href="mailto:${email.email}" class="btn-link">
                                 <span class="iconify" data-icon="mdi:email"></span>
                                 ${email.nombre || 'Enviar Correo'}
                             </a>
-                        `;
+                        `);
                     });
 
                     user.contacto.redesSociales.forEach(url => {
@@ -310,24 +260,32 @@
                         if (url.includes('youtube.com')) { icon = 'mdi:youtube'; networkName = 'YouTube'; }
                         if (url.includes('whatsapp.com') || url.includes('wa.me')) { icon = 'mdi:whatsapp'; networkName = 'WhatsApp'; }
 
-                        linksContainer.innerHTML += `
+                        allLinksHtml.push(`
                              <a href="${url}" target="_blank" class="btn-link">
                                 <span class="iconify" data-icon="${icon}"></span>
                                 ${networkName}
                             </a>
-                        `;
+                        `);
                     });
 
                     user.contacto.ubicacion.forEach(loc => {
                         if(loc.link) {
-                            linksContainer.innerHTML += `
+                            allLinksHtml.push(`
                                 <a href="${loc.link}" target="_blank" class="btn-link">
                                     <span class="iconify" data-icon="mdi:map-marker"></span>
                                     ${loc.label}
                                 </a>
-                            `;
+                            `);
                         }
                     });
+
+                    // Añadir la clase 'btn-highlight' al primer enlace si existe
+                    if (allLinksHtml.length > 0) {
+                        allLinksHtml[0] = allLinksHtml[0].replace('class="btn-link"', 'class="btn-link btn-highlight"');
+                    }
+
+                    linksContainer.innerHTML = allLinksHtml.join('');
+
 
                     // --- Lógica del Botón de WhatsApp ---
                     const waButtonContainer = document.getElementById('whatsapp-button-container');

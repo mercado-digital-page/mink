@@ -10,107 +10,142 @@
     <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
     <title>Mink | Mercado Digital</title>
     <style>
+        :root {
+            --primary: #4361ee; /* Valor por defecto, será sobrescrito por JS */
+            --primary-light: #edf2ff; /* Valor por defecto, será sobrescrito por JS */
+            --background: #ffffff;
+            --text-primary: #1f2937;
+            --text-secondary: #6c757d;
+            --border: #e5e7eb;
+        }
+
         * {
             font-family: 'Montserrat', sans-serif;
             box-sizing: border-box;
         }
         body {
-            background-color: #ECEFF1; /* Un gris claro como fondo común en Flat */
-            color: #263238; /* Gris oscuro azulado para el texto principal */
-            line-height: 1.5;
+            background-color: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
         }
         .container {
             max-width: 480px;
+            padding: 0 1.5rem;
         }
         h1 {
-            color: #263238;
-            font-weight: 500; /* Ligeramente menos peso para un estilo más plano */
+            color: var(--text-primary);
+            font-weight: 700;
+            letter-spacing: -0.015em;
         }
         p {
-            color: #546E7A; /* Un gris azulado más claro para los párrafos */
+            color: var(--text-secondary);
+            font-weight: 400;
         }
         .btn-link {
-            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-            background-color: #FFFFFF; /* Blanco sólido para los botones */
-            color: #263238;
-            border: none; /* Sin bordes */
-            box-shadow: none; /* Sin sombras */
+            background-color: var(--background); /* Fondo blanco para estilo flat */
+            color: var(--text-primary);
+            border: 1px solid var(--border); /* Borde sutil y definido */
             text-align: left;
             justify-content: flex-start;
-            padding: 1rem 1.25rem;
-            border-radius: 4px; /* Bordes ligeramente redondeados */
+            padding: 1.1rem 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            transition: all 0.25s ease-in-out; /* Transición más suave */
+            display: flex;
+            align-items: center;
+            /* Eliminado border-radius para estilo flat con bordes definidos */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Sombra sutil para flat */
         }
         .btn-link:hover {
-            background-color: #CFD8DC; /* Un gris muy claro al pasar el ratón */
-            color: #000000; /* Texto negro al pasar el ratón */
+            background-color: var(--primary); /* Fondo del color primario en hover */
+            border-color: var(--primary);
+            color: white; /* Texto blanco en hover */
+            transform: translateY(-2px); /* Efecto en hover */
+        }
+        .btn-link .iconify {
+            transition: color 0.15s ease;
+            color: var(--primary); /* Color primario para los íconos */
+        }
+        .btn-link:hover .iconify {
+            color: white; /* Ícono blanco en hover */
         }
         .floating-btn {
-            animation: none; /* Eliminar animaciones para un estilo plano */
-            background-color: #00897B; /* Un verde solido y vibrante para el botón de WhatsApp */
+            background-color: var(--primary);
             color: white;
-            border-radius: 4px; /* Bordes ligeramente redondeados */
-            padding: 1rem 2rem;
-            font-weight: 500;
+            padding: 1.1rem 2.2rem;
+            font-weight: 600;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            box-shadow: none; /* Sin sombra */
-            transition: background-color 0.2s ease-in-out;
+            border: none;
+            transition: all 0.25s ease-in-out; /* Transición más suave */
+            letter-spacing: 0.02em;
+            /* Eliminado border-radius para estilo flat con bordes definidos */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada para flotar */
         }
         .floating-btn:hover {
-            background-color: #00695C; /* Un verde ligeramente más oscuro al pasar el ratón */
-            transform: none; /* Sin elevación */
+            background-color: var(--primary); /* Mantener color primario, solo cambiar opacidad */
+            opacity: 0.9;
+            color: white;
+            transform: translateY(-2px); /* Efecto en hover */
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
         }
         .profile-circle {
-            background-color: #607D8B; /* Un gris azulado sólido para el círculo del perfil */
-            color: #FFFFFF;
-            font-weight: 400;
-            width: 100px;
-            height: 100px;
+            background-color: var(--primary-light); /* Fondo del color claro */
+            color: var(--primary); /* Texto del color oscuro para contraste */
+            font-weight: 600;
+            width: 110px;
+            height: 110px;
             font-size: 3rem;
-            border-radius: 50%; /* Forma completamente circular */
+            border: none;
+            /* Eliminado border-radius para estilo flat con bordes definidos */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .footer-link {
-            color: #90A4AE; /* Un gris azulado más claro para el footer */
+            color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.15s ease;
         }
         .footer-link:hover {
-            color: #546E7A;
+            color: var(--primary);
         }
         .iconify {
-            color: #607D8B; /* Color de icono sólido */
+            color: var(--primary); /* Color primario por defecto para íconos */
+            transition: color 0.15s ease;
         }
         .btn-link .iconify {
-            margin-right: 1rem;
+            margin-right: 1.2rem;
+            font-size: 1.4em;
         }
-        /* El icono de WhatsApp en el botón flotante siempre es blanco */
         .floating-btn .iconify {
             color: white;
+            margin-right: 0.8rem;
+            font-size: 1.3em;
         }
         
-        /* Estilos para escritorio: links centrados */
-        @media (min-width: 641px) { /* A partir de 'sm' breakpoint de Tailwind (640px + 1) */
-            .btn-link {
-                text-align: center;
-                justify-content: center; /* Centra el contenido horizontalmente */
-            }
-        }
-        
-        /* Estilos responsivos para el botón de WhatsApp */
+        /* Estilos responsivos */
         @media (max-width: 640px) {
             #whatsapp-button-container {
-                width: 90%; /* Ajuste de ancho para móviles */
-                bottom: 20px; /* Separación del borde inferior */
+                width: 92%;
+                bottom: 24px;
             }
             .floating-btn {
                 width: 100%;
-                padding: 14px 16px; /* Ajuste de padding */
+                padding: 1rem 1.5rem;
                 font-size: 1rem;
-                border-radius: 4px; /* Asegurar bordes planos en móvil también */
             }
             .container {
-                padding: 1rem; /* Más padding en móviles */
+                padding: 1rem;
+            }
+        }
+        /* Ajuste para desktop para centrar botones link */
+        @media (min-width: 641px) {
+            .btn-link {
+                justify-content: center;
+                text-align: center;
             }
         }
     </style>
@@ -118,25 +153,25 @@
 <body class="min-h-screen flex flex-col">
 
     <main class="container mx-auto p-4 flex-grow">
-        <header id="user-profile" class="text-center mb-12 mt-8">
-            </header>
+        <header id="user-profile" class="text-center mb-14 mt-10">
+        </header>
 
-        <section class="mb-8">
-            <div id="contact-links" class="grid grid-cols-1 gap-4">
-                </div>
+        <section class="mb-10">
+            <div id="contact-links" class="grid grid-cols-1 gap-2">
+            </div>
         </section>
     </main>
 
-    <footer class="text-center py-6">
-        <a href="index.html" class="footer-link inline-flex items-center transition-colors">
-            <img src="../icon.svg" alt="Mink Icon" class="w-5 h-5 mr-1">
-            <span class="font-normal">Mink | Mercado Digital</span>
+    <footer class="text-center py-8 text-base">
+        <a href="index.html" class="footer-link inline-flex items-center">
+            <img src="../icon.svg" alt="Mink Icon" class="w-6 h-6 mr-2"> 
+            <span>Mink | Mercado Digital</span>
         </a>
     </footer>
 
-    <div id="whatsapp-button-container" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50" style="display: none;">
-        <a id="whatsapp-link" href="#" target="_blank" class="floating-btn inline-flex items-center rounded-full whitespace-nowrap">
-            <span class="iconify mr-2" data-icon="mdi:whatsapp"></span>
+    <div id="whatsapp-button-container" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50" style="display: none;">
+        <a id="whatsapp-link" href="#" target="_blank" class="floating-btn inline-flex items-center">
+            <span class="iconify" data-icon="mdi:whatsapp"></span>
             Obtener Plantilla
         </a>
     </div>
@@ -167,25 +202,31 @@
                         return;
                     }
 
+                    // --- Aplicar paleta de colores dinámicamente ---
+                    const [colorDark, colorLight] = user.identidad.paletaColores;
+                    document.documentElement.style.setProperty('--primary', colorDark);
+                    document.documentElement.style.setProperty('--primary-dark', colorDark); 
+                    document.documentElement.style.setProperty('--primary-light', colorLight);
+                    
                     // --- Renderizar Perfil ---
                     document.title = user.identidad.nombre;
                     const profileDiv = document.getElementById('user-profile');
                     profileDiv.innerHTML = `
-                        <div class="w-28 h-28 mx-auto mb-5 rounded-full flex items-center justify-center profile-circle">
+                        <div class="mx-auto mb-6 profile-circle">
                             ${user.identidad.nombre.charAt(0).toUpperCase()}
                         </div>
-                        <h1 class="text-2xl font-bold text-center mb-1">${user.identidad.nombre}</h1>
-                        <p class="text-base text-center">${user.identidad.slogan}</p>
+                        <h1 class="text-3xl font-bold text-center mb-2">${user.identidad.nombre}</h1>
+                        <p class="text-lg text-center text-primary">${user.identidad.slogan}</p>
                     `;
 
                     // --- Renderizar Links de Contacto ---
                     const linksContainer = document.getElementById('contact-links');
-                    linksContainer.innerHTML = ''; // Limpiar
+                    linksContainer.innerHTML = '';
 
                     user.contacto.telefonos.forEach(tel => {
                         linksContainer.innerHTML += `
-                            <a href="tel:${tel.telefono.replace(/\s/g, '')}" class="btn-link flex items-center rounded-lg font-medium">
-                                <span class="iconify mr-3 text-xl" data-icon="mdi:phone"></span>
+                            <a href="tel:${tel.telefono.replace(/\s/g, '')}" class="btn-link">
+                                <span class="iconify" data-icon="mdi:phone"></span>
                                 ${tel.nombre || 'Llamar'} ${tel.primario ? '(Principal)' : ''}
                             </a>
                         `;
@@ -193,15 +234,15 @@
 
                     user.contacto.emails.forEach(email => {
                         linksContainer.innerHTML += `
-                             <a href="mailto:${email.email}" class="btn-link flex items-center rounded-lg font-medium">
-                                <span class="iconify mr-3 text-xl" data-icon="mdi:email"></span>
+                             <a href="mailto:${email.email}" class="btn-link">
+                                <span class="iconify" data-icon="mdi:email"></span>
                                 ${email.nombre || 'Enviar Correo'}
                             </a>
                         `;
                     });
 
                     user.contacto.redesSociales.forEach(url => {
-                        let icon = 'mdi:web'; // Icono por defecto para web
+                        let icon = 'mdi:web';
                         let networkName = 'Sitio Web';
                         if (url.includes('facebook.com')) { icon = 'mdi:facebook'; networkName = 'Facebook'; }
                         if (url.includes('instagram.com')) { icon = 'mdi:instagram'; networkName = 'Instagram'; }
@@ -211,8 +252,8 @@
                         if (url.includes('whatsapp.com') || url.includes('wa.me')) { icon = 'mdi:whatsapp'; networkName = 'WhatsApp'; }
 
                         linksContainer.innerHTML += `
-                             <a href="${url}" target="_blank" class="btn-link flex items-center rounded-lg font-medium">
-                                <span class="iconify mr-3 text-xl" data-icon="${icon}"></span>
+                             <a href="${url}" target="_blank" class="btn-link">
+                                <span class="iconify" data-icon="${icon}"></span>
                                 ${networkName}
                             </a>
                         `;
@@ -221,8 +262,8 @@
                     user.contacto.ubicacion.forEach(loc => {
                         if(loc.link) {
                             linksContainer.innerHTML += `
-                                <a href="${loc.link}" target="_blank" class="btn-link flex items-center rounded-lg font-medium">
-                                    <span class="iconify mr-3 text-xl" data-icon="mdi:map-marker"></span>
+                                <a href="${loc.link}" target="_blank" class="btn-link">
+                                    <span class="iconify" data-icon="mdi:map-marker"></span>
                                     ${loc.label}
                                 </a>
                             `;
@@ -230,20 +271,17 @@
                     });
 
                     // --- Lógica del Botón de WhatsApp ---
+                    const waButtonContainer = document.getElementById('whatsapp-button-container');
+                    const waLink = document.getElementById('whatsapp-link');
+                    
                     if (decodedUserId === 'j&l') {
-                        const waButtonContainer = document.getElementById('whatsapp-button-container');
-                        const waLink = document.getElementById('whatsapp-link');
-                        
-                        // Obtener el nombre del archivo actual (ej. "g1.html")
                         const currentPage = window.location.pathname.split('/').pop(); 
-                        
                         let messageText = 'Quisiera la plantilla';
                         
-                        // Extraer el tipo (g/p) y el número del nombre del archivo
                         const match = currentPage.match(/^([gp])(\d+)\.html$/);
                         if (match) {
-                            const typeChar = match[1]; // 'g' o 'p'
-                            const num = match[2];     // '1', '2', etc.
+                            const typeChar = match[1]; 
+                            const num = match[2];     
 
                             if (typeChar === 'g') {
                                 messageText += ' gratis';
@@ -252,23 +290,18 @@
                             }
                             messageText += ` ${num}`;
                         } else {
-                            // Fallback si el nombre del archivo no sigue el patrón esperado
                             messageText += ' [desconocida]'; 
                         }
 
                         const message = encodeURIComponent(messageText);
-
-                        const jAndLUser = data.find(u => u.identidad.id === 'j&l');
-                        let phoneNumber = '';
-                        if (jAndLUser && jAndLUser.contacto.telefonos.length > 0) {
-                            const primaryPhone = jAndLUser.contacto.telefonos.find(tel => tel.primario);
-                            phoneNumber = primaryPhone ? primaryPhone.telefono.replace(/\s/g, '') : jAndLUser.contacto.telefonos[0].telefono.replace(/\s/g, '');
-                        }
+                        const phoneNumber = '51908788502'; // Número de teléfono de g1.html
 
                         if (phoneNumber) {
                             waLink.href = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
-                            waButtonContainer.style.display = 'block';
+                            waButtonContainer.style.display = 'flex'; 
                         }
+                    } else {
+                        waButtonContainer.style.display = 'none';
                     }
                 })
                 .catch(error => {

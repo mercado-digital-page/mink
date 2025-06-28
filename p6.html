@@ -11,12 +11,11 @@
     <title>Mink | Mercado Digital</title>
     <style>
         :root {
-            --primary-dark: #4361ee; /* Valor por defecto, será sobrescrito por JS */
+            --primary: #4361ee; /* Valor por defecto, será sobrescrito por JS */
             --primary-light: #edf2ff; /* Valor por defecto, será sobrescrito por JS */
-            --background: #f0f0f0;
+            --neumorphism-base: #f0f2f5; /* Color base para el fondo y elementos Neumorphic */
             --text-primary: #1f2937;
             --text-secondary: #6c757d;
-            --border: #e5e7eb;
         }
 
         * {
@@ -24,179 +23,145 @@
             box-sizing: border-box;
         }
         body {
-            background-color: var(--background);
+            background-color: var(--neumorphism-base); /* Fondo base para Neumorphism */
             color: var(--text-primary);
             line-height: 1.6;
-            background-image: linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.5)), 
-                              url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgwLDAsMCwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         .container {
             max-width: 480px;
             padding: 0 1.5rem;
-            /* Se eliminan el color de fondo, la sombra y los bordes para que no parezca un contenedor */
-            /* background-color: white; */ 
-            min-height: 100vh;
-            /* box-shadow: 0 0 30px rgba(0,0,0,0.1); */
-            /* border-left: 1px solid rgba(0,0,0,0.05); */
-            /* border-right: 1px solid rgba(0,0,0,0.05); */
+            margin-left: auto;
+            margin-right: auto;
+            flex-grow: 1; /* Permite que el contenedor principal ocupe el espacio disponible */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centra el contenido horizontalmente */
         }
         h1 {
             color: var(--text-primary);
             font-weight: 700;
             letter-spacing: -0.015em;
+            text-align: center; /* Centrar título */
         }
         p {
             color: var(--text-secondary);
             font-weight: 400;
+            text-align: center; /* Centrar párrafo */
         }
 
-        /* Botones estilo Metálico con colorDark */
-        .btn-link {
-            background: linear-gradient(to bottom, var(--primary-dark), var(--primary-dark));
-            color: white;
-            border: 1px solid rgba(0,0,0,0.2);
-            border-bottom: 3px solid rgba(0,0,0,0.3);
-            text-align: left;
-            justify-content: flex-start;
-            padding: 1.1rem 1.5rem;
+        /* Estilos Neumorphism para elementos */
+        .neumorphic-card {
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease; /* Transición suave para interactividad */
+        }
+
+        .neumorphic-button {
+            display: flex; /* Usar flexbox para el contenido */
+            align-items: center; /* Centrar verticalmente el contenido */
+            width: 100%;
+            padding: 1.2rem 1.5rem;
+            border: none;
+            border-radius: 12px; /* Bordes redondeados */
+            background-color: var(--neumorphism-base);
+            color: var(--text-primary);
             font-weight: 600;
-            margin-bottom: 10px;
-            transition: all 0.2s ease-in-out;
+            text-align: left;
+            cursor: pointer;
+            box-shadow: 6px 6px 12px rgba(174, 174, 192, 0.3), /* Sombra base */
+                        -6px -6px 12px rgba(255, 255, 255, 0.7); /* Reflejo base */
+            transition: all 0.25s ease-in-out;
+            margin-bottom: 1rem; /* Espacio entre botones */
+            text-decoration: none; /* Asegurar que no tenga subrayado */
+        }
+
+        .neumorphic-button:hover {
+            box-shadow: inset 4px 4px 8px rgba(174, 174, 192, 0.4), /* Sombra interna para efecto de presionado */
+                        inset -4px -4px 8px rgba(255, 255, 255, 0.8); /* Reflejo interno */
+            color: var(--primary); /* Cambia el color del texto al pasar el ratón */
+        }
+
+        .neumorphic-button .iconify {
+            margin-right: 1.2rem;
+            font-size: 1.6em; /* Ícono un poco más grande */
+            color: var(--primary); /* Color del ícono por defecto */
+            transition: color 0.15s ease;
+        }
+
+        .neumorphic-button:hover .iconify {
+            color: var(--primary); /* Color primario para el ícono en hover */
+        }
+
+        /* Estilo para el botón destacado (aplicado al primer botón de contacto) */
+        .neumorphic-highlight-button {
+            background-color: var(--primary) !important; /* Fondo primario */
+            color: white !important; /* Texto blanco */
+            box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2), /* Sombra más pronunciada para resaltar */
+                        -6px -6px 12px rgba(255, 255, 255, 0.1); /* Reflejo sutil */
+        }
+
+        .neumorphic-highlight-button .iconify {
+            color: white !important; /* Ícono blanco para el botón destacado */
+        }
+
+        .neumorphic-highlight-button:hover {
+            box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.3), /* Sombra interna para presionado */
+                        inset -4px -4px 8px rgba(255, 255, 255, 0.1); /* Reflejo interno */
+            opacity: 0.9;
+        }
+
+        /* Estilo para el círculo de perfil */
+        .profile-circle {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+            width: 120px; /* Tamaño un poco más grande */
+            height: 120px; /* Tamaño un poco más grande */
+            font-size: 3.5rem; /* Tamaño de fuente para la inicial */
+            border-radius: 0.5rem;
             display: flex;
             align-items: center;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        .btn-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 50%;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
-            border-radius: 8px 8px 0 0;
-        }
-        .btn-link:hover {
-            background: linear-gradient(to bottom, var(--primary-dark), var(--primary-dark));
-            border-color: rgba(0,0,0,0.3);
-            color: white;
-            transform: translateY(-2px);
-            border-bottom-width: 2px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.4);
-        }
-        .btn-link:active {
-            transform: translateY(1px);
-            border-bottom-width: 1px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        }
-        .btn-link .iconify {
-            transition: color 0.15s ease;
-            color: white;
-            filter: drop-shadow(0 1px 1px rgba(0,0,0,0.3));
+            justify-content: center;
+            box-shadow: 8px 8px 16px rgba(174, 174, 192, 0.4),
+                        -8px -8px 16px rgba(255, 255, 255, 0.8);
+            margin: 0 auto 1.5rem auto; /* Centrar y añadir margen inferior */
         }
 
-        /* Botón Flotante (WhatsApp) */
+        /* Botón flotante de WhatsApp */
         .floating-btn {
-            background: linear-gradient(to bottom, var(--primary-dark), var(--primary-dark));
+            background-color: var(--primary);
             color: white;
             padding: 1.1rem 2.2rem;
             font-weight: 600;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(0,0,0,0.2);
-            border-bottom: 3px solid rgba(0,0,0,0.3);
-            transition: all 0.2s ease-in-out;
+            border-radius: 0.5rem;
+            transition: all 0.25s ease-in-out;
             letter-spacing: 0.02em;
-            border-radius: 50px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        .floating-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 40%;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
-            border-radius: 50px 50px 0 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada para flotar */
+            text-decoration: none;
         }
         .floating-btn:hover {
-            background: linear-gradient(to bottom, var(--primary-dark), var(--primary-dark));
-            border-color: rgba(0,0,0,0.3);
-            opacity: 0.95;
+            background-color: var(--primary);
+            opacity: 0.9;
             color: white;
-            transform: translateY(-2px);
-            border-bottom-width: 2px;
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.4);
-        }
-        .floating-btn:active {
-            transform: translateY(1px);
-            border-bottom-width: 1px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px); /* Efecto de levitación mayor */
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
         }
         .floating-btn .iconify {
             color: white;
             margin-right: 0.8rem;
             font-size: 1.3em;
-            filter: drop-shadow(0 1px 1px rgba(0,0,0,0.3));
-        }
-        
-        /* Círculo de Perfil */
-        .profile-circle {
-            background-color: var(--primary-light);
-            color: var(--primary-dark);
-            font-weight: 600;
-            width: 110px;
-            height: 110px;
-            font-size: 3rem;
-            border: 3px solid var(--primary-dark);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1), inset 0 0 20px rgba(0,0,0,0.05);
-            position: relative;
-            overflow: hidden;
-        }
-        .profile-circle::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 50%;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.4), rgba(255,255,255,0.1));
-            border-radius: 50% 50% 0 0;
-        }
-
-        .footer-link {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.15s ease;
-        }
-        .footer-link:hover {
-            color: var(--primary-dark);
-        }
-        .iconify {
-            color: white;
-            transition: color 0.15s ease;
-        }
-        .btn-link .iconify {
-            margin-right: 1.2rem;
-            font-size: 1.4em;
         }
         
         /* Estilos responsivos */
         @media (max-width: 640px) {
             #whatsapp-button-container {
-                width: 92%;
+                width: 90%; /* Ocupa más ancho en móvil */
                 bottom: 24px;
             }
             .floating-btn {
@@ -207,27 +172,22 @@
             .container {
                 padding: 1rem;
             }
+            .neumorphic-card {
+                padding: 15px; /* Menos padding en móvil */
+            }
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="flex flex-col">
 
     <main class="container mx-auto p-4 flex-grow">
-        <header id="user-profile" class="text-center mb-14 mt-10">
+        <header id="user-profile" class="text-center mb-10 mt-10 neumorphic-card">
         </header>
 
-        <section class="mb-10">
-            <div id="contact-links" class="grid grid-cols-1 gap-2">
+        <section class="mb-10 w-full"> <div id="contact-links" class="flex flex-col gap-4">
             </div>
         </section>
     </main>
-
-    <footer class="text-center py-8 text-base">
-        <a href="index.html" class="footer-link inline-flex items-center">
-            <img src="../icon.svg" alt="Mink Icon" class="w-6 h-6 mr-2"> 
-            <span>Mink | Mercado Digital</span>
-        </a>
-    </footer>
 
     <div id="whatsapp-button-container" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50" style="display: none;">
         <a id="whatsapp-link" href="#" target="_blank" class="floating-btn inline-flex items-center">
@@ -264,9 +224,12 @@
 
                     // --- Aplicar paleta de colores dinámicamente ---
                     const [colorDark, colorLight] = user.identidad.paletaColores;
-                    document.documentElement.style.setProperty('--primary-dark', colorDark);
+                    document.documentElement.style.setProperty('--primary', colorDark);
                     document.documentElement.style.setProperty('--primary-light', colorLight);
-                    
+                    // Si el color base del Neumorphism debe cambiar con la paleta:
+                    // document.documentElement.style.setProperty('--neumorphism-base', colorLight);
+                    // Considera que el color base Neumorphism debe ser claro para que las sombras se noten bien.
+
                     // --- Renderizar Perfil ---
                     document.title = user.identidad.nombre;
                     const profileDiv = document.getElementById('user-profile');
@@ -280,24 +243,25 @@
 
                     // --- Renderizar Links de Contacto ---
                     const linksContainer = document.getElementById('contact-links');
-                    linksContainer.innerHTML = '';
+                    let allLinksHtml = [];
 
+                    // Generar todos los enlaces
                     user.contacto.telefonos.forEach(tel => {
-                        linksContainer.innerHTML += `
-                            <a href="tel:${tel.telefono.replace(/\s/g, '')}" class="btn-link">
+                        allLinksHtml.push(`
+                            <a href="tel:${tel.telefono.replace(/\s/g, '')}" class="neumorphic-button">
                                 <span class="iconify" data-icon="mdi:phone"></span>
                                 ${tel.nombre || 'Llamar'} ${tel.primario ? '(Principal)' : ''}
                             </a>
-                        `;
+                        `);
                     });
 
                     user.contacto.emails.forEach(email => {
-                        linksContainer.innerHTML += `
-                             <a href="mailto:${email.email}" class="btn-link">
+                        allLinksHtml.push(`
+                             <a href="mailto:${email.email}" class="neumorphic-button">
                                 <span class="iconify" data-icon="mdi:email"></span>
                                 ${email.nombre || 'Enviar Correo'}
                             </a>
-                        `;
+                        `);
                     });
 
                     user.contacto.redesSociales.forEach(url => {
@@ -307,27 +271,35 @@
                         if (url.includes('instagram.com')) { icon = 'mdi:instagram'; networkName = 'Instagram'; }
                         if (url.includes('linkedin.com')) { icon = 'mdi:linkedin'; networkName = 'LinkedIn'; }
                         if (url.includes('twitter.com') || url.includes('x.com')) { icon = 'mdi:twitter'; networkName = 'Twitter/X'; }
-                        if (url.includes('youtube.com')) { icon = 'mdi:youtube'; networkName = 'YouTube'; }
+                        if (url.includes('youtube.com')) { icon = 'mdi:youtube'; networkName = 'YouTube'; } /* Corregido para que no use googleusercontent */
                         if (url.includes('whatsapp.com') || url.includes('wa.me')) { icon = 'mdi:whatsapp'; networkName = 'WhatsApp'; }
 
-                        linksContainer.innerHTML += `
-                             <a href="${url}" target="_blank" class="btn-link">
+                        allLinksHtml.push(`
+                             <a href="${url}" target="_blank" class="neumorphic-button">
                                 <span class="iconify" data-icon="${icon}"></span>
                                 ${networkName}
                             </a>
-                        `;
+                        `);
                     });
 
                     user.contacto.ubicacion.forEach(loc => {
                         if(loc.link) {
-                            linksContainer.innerHTML += `
-                                <a href="${loc.link}" target="_blank" class="btn-link">
+                            allLinksHtml.push(`
+                                <a href="${loc.link}" target="_blank" class="neumorphic-button">
                                     <span class="iconify" data-icon="mdi:map-marker"></span>
                                     ${loc.label}
                                 </a>
-                            `;
+                            `);
                         }
                     });
+
+                    // Añadir la clase 'neumorphic-highlight-button' al primer enlace si existe
+                    if (allLinksHtml.length > 0) {
+                        allLinksHtml[0] = allLinksHtml[0].replace('class="neumorphic-button"', 'class="neumorphic-button neumorphic-highlight-button"');
+                    }
+
+                    linksContainer.innerHTML = allLinksHtml.join('');
+
 
                     // --- Lógica del Botón de WhatsApp ---
                     const waButtonContainer = document.getElementById('whatsapp-button-container');

@@ -26,21 +26,64 @@
         .floating-btn:hover {
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
         }
+        /* Estilo para los botones de enlace tipo Linktree */
+        .linktree-btn {
+            display: flex;
+            align-items: center;
+            justify-content: left; /* Centra el contenido horizontalmente */
+            width: 100%;
+            max-width: 320px; /* Ancho máximo para los botones */
+            margin: 0 auto 16px auto; /* Centra y añade margen inferior */
+            padding: 16px;
+            border-radius: 9999px; /* Bordes redondeados */
+            font-weight: 500; /* Medium font-weight */
+            text-decoration: none;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Sombra sutil */
+            transition: all 0.2s ease-in-out;
+            backdrop-filter: blur(9px); /* Frosted glass effect */
+            background: rgba(255, 255, 255, 0.4);
+        }
+        .linktree-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+        }
+        .linktree-btn .iconify {
+            margin-right: 12px;
+            font-size: 24px; /* Tamaño del icono */
+        }
+        /* Glassmorphism Styles */
+        body {
+            background-image: url('https://www.ipec.misiones.gov.ar/wp-content/uploads/2021/11/Construccion.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+            min-height: 100vh;
+        }
+        .glassmorphism-card {
+            background: rgba(255, 255, 255, 0.4); /* Translucent white background */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(9px); /* Frosted glass effect */
+            -webkit-backdrop-filter: blur(9px); /* For Safari */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle white border */
+            padding: 24px; /* Adjust padding as needed */
+            min-width: 100%;
+            min-height: 100%;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col leading-normal bg-white">
-    <main class="container mx-auto px-4 sm:px-6 py-4 flex-grow max-w-sm">
+    <main class="container mx-auto px-4 sm:px-6 py-4 flex-grow max-w-sm glassmorphism-card">
         <header id="user-profile" class="text-center mb-12 mt-12">
         </header>
         <section class="mb-8">
-            <div id="contact-links" class="grid grid-cols-1 gap-4">
+            <div id="contact-links" class="flex flex-col items-center">
             </div>
         </section>
     </main>
-    <footer class="text-center py-8 text-sm text-gray-400 decoration-none">
-        <a href="index.html" class="footer-link inline-flex items-center transition-colors hover:text-gray-600">
-            <img src="../icon.svg" alt="Mink Icon" class="w-4 h-4 mr-1"> <span class="font-normal">Mink | Mercado Digital</span> </a>
-    </footer>
     <div id="whatsapp-button-container" class="fixed bottom-5 inset-x-0 mx-auto z-50 w-11/12 max-w-sm flex justify-center">
         <a id="whatsapp-link" href="#" target="_blank" class="floating-btn flex items-center rounded-full whitespace-nowrap text-white px-6 py-3 text-base font-medium w-full sm:w-auto justify-center">
             <span class="iconify mr-2 text-white" data-icon="mdi:whatsapp"></span>
@@ -77,12 +120,12 @@
                             background-color: ${colorLight};
                             color: ${colorDark};
                         }
-                        .btn-link { 
+                        .btn-link {
                             background-color: white;
                             color: #1f2937;
                             border: 1px solid #e5e7eb;
                         }
-                        .btn-link:hover { 
+                        .btn-link:hover {
                             background-color: ${colorDark};
                             color: white;
                             border-color: ${colorDark};
@@ -97,13 +140,32 @@
                             background-color: ${colorDark};
                             opacity: 0.9;
                         }
+                        /* Estilos para los botones Linktree */
+                        .linktree-btn {
+                            color: #1f2937;
+                            border: 1px solid #e5e7eb;
+                        }
+                        .linktree-btn:hover {
+                            background-color: ${colorDark};
+                            color: white;
+                            border-color: ${colorDark};
+                        }
+                        .linktree-btn:hover .iconify {
+                            color: white;
+                        }
+                        .linktree-btn .text-primary { /* Asegura que el color del icono cambie en hover */
+                            color: ${colorDark};
+                        }
+                        .linktree-btn:hover .text-primary {
+                            color: white;
+                        }
                     `;
                     document.head.appendChild(style);
                     document.title = user.identidad.nombre;
                     const profileDiv = document.getElementById('user-profile');
                     profileDiv.innerHTML = `
-                        <div class="w-24 h-24 mx-auto mb-6 rounded-full flex items-center justify-center border-none icon-circle text-white font-medium text-4xl">
-                            ${user.identidad.nombre.charAt(0).toUpperCase()}
+                        <div class="w-24 h-24 mx-auto mb-6 rounded-full flex items-center justify-center border-none icon-circle" style="background-color: ${colorLight};">
+                            <img src="../users/${decodedUserId}/icon.svg" alt="${user.identidad.nombre} Logo" style="max-width: 70%; max-height: 70%;">
                         </div>
                         <h1 class="text-2xl font-bold text-center mb-1 text-gray-900 tracking-tight">
                             ${user.identidad.nombre}
@@ -116,16 +178,16 @@
                     linksContainer.innerHTML = '';
                     user.contacto.telefonos.forEach(tel => {
                         linksContainer.innerHTML += `
-                            <a href="tel:${tel.telefono.replace(/\s/g, '')}" class="btn-link flex items-center rounded-full font-medium p-4 justify-start">
-                                <span class="iconify mr-3 text-primary text-xl" data-icon="mdi:phone"></span>
+                            <a href="tel:${tel.telefono.replace(/\s/g, '')}" class="linktree-btn">
+                                <span class="iconify text-primary" data-icon="mdi:phone"></span>
                                 ${tel.nombre || 'Llamar'} ${tel.primario ? '(Principal)' : ''}
                             </a>
                         `;
                     });
                     user.contacto.emails.forEach(email => {
                         linksContainer.innerHTML += `
-                             <a href="mailto:${email.email}" class="btn-link flex items-center rounded-full font-medium p-4 justify-start">
-                                <span class="iconify mr-3 text-primary text-xl" data-icon="mdi:email"></span>
+                             <a href="mailto:${email.email}" class="linktree-btn">
+                                <span class="iconify text-primary" data-icon="mdi:email"></span>
                                 ${email.nombre || 'Enviar Correo'}
                             </a>
                         `;
@@ -134,14 +196,14 @@
                         let icon = 'mdi:web';
                         let networkName = 'Sitio Web';
                         if (url.includes('facebook.com')) { icon = 'mdi:facebook'; networkName = 'Facebook'; }
-                        if (url.includes('instagram.com')) { icon = 'mdi:instagram'; networkName = 'Instagram'; }
-                        if (url.includes('linkedin.com')) { icon = 'mdi:linkedin'; networkName = 'LinkedIn'; }
-                        if (url.includes('twitter.com') || url.includes('x.com')) { icon = 'mdi:twitter'; networkName = 'Twitter/X'; }
-                        if (url.includes('youtube.com')) { icon = 'mdi:youtube'; networkName = 'YouTube'; }
-                        if (url.includes('whatsapp.com') || url.includes('wa.me')) { icon = 'mdi:whatsapp'; networkName = 'WhatsApp'; }
+                        else if (url.includes('instagram.com')) { icon = 'mdi:instagram'; networkName = 'Instagram'; }
+                        else if (url.includes('linkedin.com')) { icon = 'mdi:linkedin'; networkName = 'LinkedIn'; }
+                        else if (url.includes('twitter.com') || url.includes('x.com')) { icon = 'mdi:twitter'; networkName = 'Twitter/X'; }
+                        else if (url.includes('youtube.com')) { icon = 'mdi:youtube'; networkName = 'YouTube'; }
+                        else if (url.includes('whatsapp.com') || url.includes('wa.me')) { icon = 'mdi:whatsapp'; networkName = 'WhatsApp'; }
                         linksContainer.innerHTML += `
-                             <a href="${url}" target="_blank" class="btn-link flex items-center rounded-full font-medium p-4 justify-left">
-                                <span class="iconify mr-3 text-primary text-xl" data-icon="${icon}"></span>
+                             <a href="${url}" target="_blank" class="linktree-btn">
+                                <span class="iconify text-primary" data-icon="${icon}"></span>
                                 ${networkName}
                             </a>
                         `;
@@ -149,8 +211,8 @@
                     user.contacto.ubicacion.forEach(loc => {
                         if(loc.link) {
                             linksContainer.innerHTML += `
-                                <a href="${loc.link}" target="_blank" class="btn-link flex items-center rounded-full font-medium p-4 justify-left">
-                                    <span class="iconify mr-3 text-primary text-xl" data-icon="mdi:map-marker"></span>
+                                <a href="${loc.link}" target="_blank" class="linktree-btn">
+                                    <span class="iconify text-primary" data-icon="mdi:map-marker"></span>
                                     ${loc.label}
                                 </a>
                             `;

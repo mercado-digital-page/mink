@@ -4,196 +4,172 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
     <title>Mink | Mercado Digital</title>
     <style>
-        /* Nueva paleta de colores Retro/Vintage - Mid-Century Modern/Atomic Age */
         :root {
-            --retro-bg: #f0ead6; /* Beige claro de fondo, como papel envejecido */
-            --retro-primary: #457b9d; /* Azul acero, un color clásico de la época */
-            --retro-secondary: #a8dadc; /* Turquesa claro, para acentos y botones */
-            --retro-accent: #f4a261; /* Naranja quemado/mandarina, para puntos de atención */
-            --retro-text: #264653; /* Azul oscuro verdoso, para texto principal y fuerte */
+            /* Colores base para Neumorphism */
+            --background-base: #ecf0f3; /* Un color de fondo suave y neutro */
+            --primary: #4361ee; /* Color primario original, mantenido para acentos */
+            --primary-light: #edf2ff; /* Color primario claro original */
+            --text-primary: #1f2937;
+            --text-secondary: #6c757d;
+            --border: #e5e7eb; /* Aunque se usará menos con Neumorphism, se mantiene */
         }
 
         * {
-            font-family: 'Space Grotesk', sans-serif; /* Fuente principal con un toque moderno y geométrico retro */
+            font-family: 'Montserrat', sans-serif;
             box-sizing: border-box;
         }
         body {
-            background-color: var(--retro-bg);
-            color: var(--retro-text);
+            background-color: var(--background-base); /* Fondo base para Neumorphism */
+            color: var(--text-primary);
             line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Centra el contenido en el centro de la página */
-            padding-top: 2rem; /* Espacio superior para el contenido flotante */
-            padding-bottom: 2rem; /* Espacio inferior para el footer y botón flotante */
-            margin: 0; /* Asegurarse de que no haya márgenes externos */
         }
         .container {
             max-width: 480px;
-            width: 90%; /* Asegura que el contenedor se ajuste en móviles */
-            padding: 1.5rem; /* Relleno uniforme dentro del contenedor */
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            padding: 0 1.5rem;
         }
-        /* Contenedor flotante para la inicial, título y eslogan */
-        #user-info {
-            text-align: center;
-            margin-bottom: 2.5rem; /* Espacio entre la info del usuario y el contenedor de links */
-            width: 100%; /* Para centrar correctamente el texto */
-            padding: 0 1.5rem; /* Un poco de padding horizontal para texto en móviles */
-        }
-        .profile-initial {
-            background-color: var(--retro-accent); /* Círculo naranja brillante */
-            color: white;
-            font-family: 'Roboto Mono', monospace; /* Fuente de estilo máquina de escribir para la inicial */
-            font-weight: 700;
-            font-size: 4rem;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem auto; /* Centrar y añadir margen inferior */
-            /* Sombra compleja para un efecto de capa elevado */
-            box-shadow: 5px 5px 0px var(--retro-primary), /* Sombra principal azul acero */
-                        10px 10px 0px rgba(0,0,0,0.15); /* Sombra más oscura para profundidad */
-            border: 2px solid white; /* Borde blanco para resaltar */
-        }
-
         h1 {
-            font-family: 'Space Grotesk', sans-serif; /* Fuente llamativa para el nombre */
-            color: var(--retro-text);
+            color: var(--text-primary);
             font-weight: 700;
-            text-transform: uppercase;
-            /* Sombra de texto audaz y estratificada, muy retro */
-            text-shadow: 3px 3px 0px var(--retro-secondary), /* Capa turquesa */
-                         5px 5px 0px rgba(0,0,0,0.1); /* Capa de sombra oscura */
-            margin-top: 0; /* Remover margen superior por defecto */
-            margin-bottom: 0.75rem; /* Espacio debajo del título */
-            line-height: 1.1; /* Ajustar línea de altura */
-            font-size: 2.5rem; /* Un poco más grande para el impacto */
+            letter-spacing: -0.015em;
         }
         p {
-            font-family: 'Roboto Mono', monospace; /* Eslogan en estilo máquina de escribir */
-            color: var(--retro-text);
-            font-size: 1.1rem;
-            line-height: 1.4;
-        }
-        /* Contenedor de links (el "panel" retro) */
-        #contact-links {
-            background-color: var(--retro-primary); /* Fondo azul acero para el contenedor de links */
-            border-radius: 12px; /* Esquinas redondeadas suaves */
-            padding: 2rem; /* Relleno generoso */
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.25rem; /* Espaciado entre links */
-            /* Sombra desplazada y colorida, como un objeto separado */
-            box-shadow: 10px 10px 0px var(--retro-accent), /* Sombra principal naranja */
-                        15px 15px 0px rgba(0,0,0,0.2); /* Sombra de profundidad */
-            margin-top: 0; /* Resetear margen superior si hubiera */
+            color: var(--text-secondary);
+            font-weight: 400;
         }
 
+        /* Estilo Neumorphism para botones de enlace */
         .btn-link {
-            background-color: var(--retro-secondary); /* Botón turquesa claro */
-            color: var(--retro-text); /* Texto oscuro para el botón */
-            border: 2px solid var(--retro-primary); /* Borde azul acero */
-            /* Sombra de botón desplazada y colorida */
-            box-shadow: 3px 3px 0px var(--retro-accent);
-            transition: all 0.2s ease;
+            background-color: var(--background-base); /* Fondo que coincide con el body */
+            color: var(--text-primary);
+            border: none; /* Eliminar borde */
             text-align: left;
             justify-content: flex-start;
-            padding: 1rem 1.25rem;
-            border-radius: 8px; /* Bordes redondeados */
-            font-weight: 700;
-            font-family: 'Space Grotesk', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            display: flex; /* Asegurar que el icono y texto estén alineados */
+            padding: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease; /* Transición más suave */
+            display: flex;
             align-items: center;
+            border-radius: 0.8rem; /* Bordes más redondeados */
+            /* Sombras para el efecto "out" */
+            box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.1),
+                        -6px -6px 12px rgba(255, 255, 255, 0.7);
         }
         .btn-link:hover {
-            background-color: #72afb1; /* Turquesa ligeramente más oscuro */
-            box-shadow: 1px 1px 0px var(--retro-accent); /* Sombra más pequeña al presionar */
-            transform: translateY(2px) translateX(2px); /* Efecto de "presionado" */
-            color: var(--retro-text);
+            background-color: var(--background-base); /* Mantener el mismo fondo */
+            color: var(--text-primary); /* Mantener el mismo color de texto */
+            transform: translateY(0); /* Eliminar transformación en hover */
+            /* Sombras para el efecto "in" */
+            box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.1),
+                        inset -4px -4px 8px rgba(255, 255, 255, 0.7);
         }
+        .btn-link .iconify {
+            transition: color 0.15s ease;
+            color: var(--primary); /* Color primario para los íconos */
+        }
+        .btn-link:hover .iconify {
+            color: var(--primary); /* Ícono mantiene el color primario en hover */
+        }
+
+        /* Estilo Neumorphism para botón flotante (Obtener Plantilla) - mantiene su color */
         .floating-btn {
-            background-color: var(--retro-accent); /* ¡Botón de WhatsApp naranja para que se note! */
+            background-color: var(--primary); /* Mantiene el color primario */
             color: white;
-            border: 3px solid var(--retro-primary); /* Borde azul oscuro */
-            /* Sombra pronunciada y oscura */
-            box-shadow: 5px 5px 0px var(--retro-text);
-            border-radius: 9999px;
-            padding: 1rem 2rem;
-            font-weight: 700;
-            font-family: 'Space Grotesk', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            padding: 1.1rem 2.2rem;
+            font-weight: 600;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.2s ease;
+            border-radius: 0.8rem; /* Bordes más redondeados */
+            transition: all 0.3s ease;
+            letter-spacing: 0.02em;
+            /* Sombras para el efecto "out" sobre el color primario */
+            box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2), /* Sombra más oscura para contraste */
+                        -6px -6px 12px rgba(255, 255, 255, 0.4); /* Sombra más sutil */
         }
         .floating-btn:hover {
-            background-color: #e09250; /* Naranja ligeramente más oscuro */
-            box-shadow: 2px 2px 0px var(--retro-text);
-            transform: translateY(3px) translateX(3px);
+            background-color: var(--primary); /* Mantiene el color primario */
+            opacity: 1;
+            color: white;
+            transform: translateY(0);
+            /* Sombras para el efecto "in" sobre el color primario */
+            box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.3), /* Sombra más oscura para "in" */
+                        inset -4px -4px 8px rgba(255, 255, 255, 0.5); /* Sombra más sutil */
         }
+        
+        /* Estilo para la foto de perfil/inicial (mantiene lightColor y forma cuadrada) */
+        .profile-circle { /* Renombrado de profile-circle a profile-initial-container para mayor claridad */
+            background-color: var(--primary-light); /* Fondo del color claro, como se pidió */
+            color: var(--primary); /* Texto del color oscuro para contraste */
+            font-weight: 600;
+            width: 110px;
+            height: 110px;
+            font-size: 3rem;
+            border: none;
+            border-radius: 0.5rem; /* Vuelve a la forma cuadrada con bordes redondeados */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Se puede añadir una sombra sutil si se desea, pero sin el efecto neumorphism completo para mantener la distinción */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        }
+
         .footer-link {
-            color: var(--retro-text);
+            color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.95rem;
             font-weight: 500;
-            transition: all 0.2s ease-in-out;
-            margin-top: 1.5rem; /* Margen para separar del botón flotante */
+            transition: color 0.15s ease;
         }
         .footer-link:hover {
-            color: #000000;
+            color: var(--primary);
         }
         .iconify {
-            color: var(--retro-text); /* Color por defecto para iconos no en botones */
-            margin-right: 0.75rem; /* Espaciado entre icono y texto */
-            font-size: 1.3rem; /* Tamaño de icono por defecto */
+            color: var(--primary);
+            transition: color 0.15s ease;
         }
         .btn-link .iconify {
-            color: var(--retro-text); /* Íconos dentro de los botones */
+            margin-right: 1.2rem;
+            font-size: 1.4em;
         }
         .floating-btn .iconify {
-            color: white; /* Ícono de WhatsApp blanco */
+            color: white;
+            margin-right: 0.8rem;
+            font-size: 1.3em;
         }
         
-        /* Estilos para escritorio: links centrados */
-        @media (min-width: 641px) {
-            .btn-link {
-                text-align: center;
-                justify-content: center;
-            }
-        }
-        
-        /* Estilos responsivos para el botón de WhatsApp */
+        /* Estilos responsivos */
         @media (max-width: 640px) {
             #whatsapp-button-container {
-                width: 90%;
-                bottom: 20px;
+                width: 92%;
+                bottom: 24px;
             }
             .floating-btn {
                 width: 100%;
-                padding: 14px 16px;
+                padding: 1rem 1.5rem;
                 font-size: 1rem;
-                border-radius: 9999px;
             }
             .container {
                 padding: 1rem;
+            }
+            .btn-link.center-on-single {
+                grid-column: span 2;
+                justify-content: center;
+                text-align: center;
+            }
+        }
+        /* Ajuste para desktop para centrar botones link */
+        @media (min-width: 641px) {
+            .btn-link {
+                justify-content: center;
+                text-align: center;
+            }
+            .btn-link.center-on-single {
+                grid-column: span 2;
             }
         }
     </style>
@@ -201,28 +177,18 @@
 <body class="min-h-screen flex flex-col">
 
     <main class="container mx-auto p-4 flex-grow">
-        <header id="user-info">
-            <div class="profile-initial"></div>
-            <h1></h1>
-            <p></p>
+        <header id="user-profile" class="text-center mb-14 mt-10">
         </header>
 
-        <section class="mb-8 w-full">
-            <div id="contact-links">
+        <section class="mb-10">
+            <div id="contact-links" class="grid grid-cols-2 sm:grid-cols-2 gap-4">
             </div>
         </section>
     </main>
 
-    <footer class="text-center py-6">
-        <a href="index.html" class="footer-link inline-flex items-center transition-colors">
-            <img src="../icon.svg" alt="Mink Icon" class="w-5 h-5 mr-1">
-            <span class="font-normal">Mink | Mercado Digital</span>
-        </a>
-    </footer>
-
-    <div id="whatsapp-button-container" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50" style="display: none;">
-        <a id="whatsapp-link" href="#" target="_blank" class="floating-btn inline-flex items-center rounded-full whitespace-nowrap">
-            <span class="iconify mr-2" data-icon="mdi:whatsapp"></span>
+    <div id="whatsapp-button-container" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50" style="display: none;">
+        <a id="whatsapp-link" href="#" target="_blank" class="floating-btn inline-flex items-center">
+            <span class="iconify" data-icon="mdi:whatsapp"></span>
             Obtener Plantilla
         </a>
     </div>
@@ -233,7 +199,7 @@
             const userId = params.get('id');
 
             if (!userId) {
-                document.getElementById('user-info').innerHTML = `<p class="text-red-500">No se especificó un ID de usuario.</p>`;
+                document.getElementById('user-profile').innerHTML = `<p class="text-red-500">No se especificó un ID de usuario.</p>`;
                 return;
             }
 
@@ -249,42 +215,52 @@
                     const user = data.find(u => u.identidad.id === decodedUserId);
 
                     if (!user) {
-                        document.getElementById('user-info').innerHTML = `<p class="text-red-500">Usuario no encontrado.</p>`;
+                        document.getElementById('user-profile').innerHTML = `<p class="text-red-500">Usuario no encontrado.</p>`;
                         return;
                     }
 
+                    // --- Aplicar paleta de colores dinámicamente ---
+                    const [colorDark, colorLight] = user.identidad.paletaColores;
+                    // Mantener estas variables para el color primario, pero el fondo base es --background-base
+                    document.documentElement.style.setProperty('--primary', colorDark);
+                    document.documentElement.style.setProperty('--primary-dark', colorDark); 
+                    document.documentElement.style.setProperty('--primary-light', colorLight);
+                    
                     // --- Renderizar Perfil ---
                     document.title = user.identidad.nombre;
-                    const userInfoDiv = document.getElementById('user-info');
-                    userInfoDiv.querySelector('.profile-initial').textContent = user.identidad.nombre.charAt(0).toUpperCase();
-                    userInfoDiv.querySelector('h1').textContent = user.identidad.nombre;
-                    userInfoDiv.querySelector('p').textContent = user.identidad.slogan;
-
+                    const profileDiv = document.getElementById('user-profile');
+                    profileDiv.innerHTML = `
+                        <div class="mx-auto mb-6 profile-circle">
+                            ${user.identidad.nombre.charAt(0).toUpperCase()}
+                        </div>
+                        <h1 class="text-3xl font-bold text-center mb-2">${user.identidad.nombre}</h1>
+                        <p class="text-lg text-center text-primary">${user.identidad.slogan}</p>
+                    `;
 
                     // --- Renderizar Links de Contacto ---
                     const linksContainer = document.getElementById('contact-links');
-                    linksContainer.innerHTML = ''; // Limpiar
+                    let allLinksHtml = [];
 
                     user.contacto.telefonos.forEach(tel => {
-                        linksContainer.innerHTML += `
+                        allLinksHtml.push(`
                             <a href="tel:${tel.telefono.replace(/\s/g, '')}" class="btn-link">
                                 <span class="iconify" data-icon="mdi:phone"></span>
                                 ${tel.nombre || 'Llamar'} ${tel.primario ? '(Principal)' : ''}
                             </a>
-                        `;
+                        `);
                     });
 
                     user.contacto.emails.forEach(email => {
-                        linksContainer.innerHTML += `
+                        allLinksHtml.push(`
                              <a href="mailto:${email.email}" class="btn-link">
                                 <span class="iconify" data-icon="mdi:email"></span>
                                 ${email.nombre || 'Enviar Correo'}
                             </a>
-                        `;
+                        `);
                     });
 
                     user.contacto.redesSociales.forEach(url => {
-                        let icon = 'mdi:web'; // Icono por defecto para web
+                        let icon = 'mdi:web';
                         let networkName = 'Sitio Web';
                         if (url.includes('facebook.com')) { icon = 'mdi:facebook'; networkName = 'Facebook'; }
                         if (url.includes('instagram.com')) { icon = 'mdi:instagram'; networkName = 'Instagram'; }
@@ -293,40 +269,45 @@
                         if (url.includes('youtube.com')) { icon = 'mdi:youtube'; networkName = 'YouTube'; }
                         if (url.includes('whatsapp.com') || url.includes('wa.me')) { icon = 'mdi:whatsapp'; networkName = 'WhatsApp'; }
 
-                        linksContainer.innerHTML += `
+                        allLinksHtml.push(`
                              <a href="${url}" target="_blank" class="btn-link">
                                 <span class="iconify" data-icon="${icon}"></span>
                                 ${networkName}
                             </a>
-                        `;
+                        `);
                     });
 
                     user.contacto.ubicacion.forEach(loc => {
                         if(loc.link) {
-                            linksContainer.innerHTML += `
+                            allLinksHtml.push(`
                                 <a href="${loc.link}" target="_blank" class="btn-link">
                                     <span class="iconify" data-icon="mdi:map-marker"></span>
                                     ${loc.label}
                                 </a>
-                            `;
+                            `);
                         }
                     });
 
+                    // Agrega los enlaces al DOM y aplica la clase 'center-on-single' si el número es impar
+                    if (allLinksHtml.length % 2 !== 0 && allLinksHtml.length > 0) {
+                        const lastLinkIndex = allLinksHtml.length - 1;
+                        allLinksHtml[lastLinkIndex] = allLinksHtml[lastLinkIndex].replace('class="btn-link"', 'class="btn-link center-on-single"');
+                    }
+                    linksContainer.innerHTML = allLinksHtml.join('');
+
+
                     // --- Lógica del Botón de WhatsApp ---
+                    const waButtonContainer = document.getElementById('whatsapp-button-container');
+                    const waLink = document.getElementById('whatsapp-link');
+                    
                     if (decodedUserId === 'j&l') {
-                        const waButtonContainer = document.getElementById('whatsapp-button-container');
-                        const waLink = document.getElementById('whatsapp-link');
-                        
-                        // Obtener el nombre del archivo actual (ej. "g1.html")
                         const currentPage = window.location.pathname.split('/').pop(); 
-                        
                         let messageText = 'Quisiera la plantilla';
                         
-                        // Extraer el tipo (g/p) y el número del nombre del archivo
                         const match = currentPage.match(/^([gp])(\d+)\.html$/);
                         if (match) {
-                            const typeChar = match[1]; // 'g' o 'p'
-                            const num = match[2];     // '1', '2', etc.
+                            const typeChar = match[1]; 
+                            const num = match[2];     
 
                             if (typeChar === 'g') {
                                 messageText += ' gratis';
@@ -335,28 +316,23 @@
                             }
                             messageText += ` ${num}`;
                         } else {
-                            // Fallback si el nombre del archivo no sigue el patrón esperado
                             messageText += ' [desconocida]'; 
                         }
 
                         const message = encodeURIComponent(messageText);
-
-                        const jAndLUser = data.find(u => u.identidad.id === 'j&l');
-                        let phoneNumber = '';
-                        if (jAndLUser && jAndLUser.contacto.telefonos.length > 0) {
-                            const primaryPhone = jAndLUser.contacto.telefonos.find(tel => tel.primario);
-                            phoneNumber = primaryPhone ? primaryPhone.telefono.replace(/\s/g, '') : jAndLUser.contacto.telefonos[0].telefono.replace(/\s/g, '');
-                        }
+                        const phoneNumber = '51908788502'; // Número de teléfono de g1.html
 
                         if (phoneNumber) {
                             waLink.href = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
-                            waButtonContainer.style.display = 'block';
+                            waButtonContainer.style.display = 'flex'; 
                         }
+                    } else {
+                        waButtonContainer.style.display = 'none';
                     }
                 })
                 .catch(error => {
                     console.error('Error al cargar los datos:', error);
-                    document.getElementById('user-info').innerHTML = `<p class="text-red-500">Hubo un error al cargar la información: ${error.message}. Asegúrate de que el archivo users.json exista en la ruta correcta.</p>`;
+                    document.getElementById('user-profile').innerHTML = `<p class="text-red-500">Hubo un error al cargar la información: ${error.message}. Asegúrate de que el archivo users.json exista en la ruta correcta.</p>`;
                 });
         });
     </script>
