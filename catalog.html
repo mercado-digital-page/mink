@@ -10,8 +10,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
     <style>
+        /* Base Styles */
         * {
             font-family: 'Montserrat', sans-serif;
+            box-sizing: border-box;
         }
         :root {
             --white-smoke: #F2F2F2;
@@ -20,7 +22,14 @@
             --cadet-blue: #48A6A7;
             --teal: #006A71;
             --ebony: #0D0D0D;
+            --accent-red: #E74C3C;
         }
+        body {
+            background-color: var(--seashell);
+            color: var(--ebony);
+        }
+
+        /* Card & Badge Styles */
         .mink-card {
             transition: transform 0.3s, box-shadow 0.3s;
         }
@@ -28,10 +37,12 @@
             transform: translateY(-8px);
             box-shadow: 0 12px 24px rgba(13, 13, 13, 0.15);
         }
+        /* Premium Badge - Black background, white text */
         .premium-badge {
-            background: linear-gradient(135deg, var(--teal), var(--cadet-blue));
+            background-color: var(--ebony);
+            color: white;
         }
-        .recommended-badge {
+        .recommended-badge { /* Not used in this version, but kept for consistency */
             background: linear-gradient(135deg, #e53935, #c11b17);
         }
         .template-title {
@@ -44,6 +55,30 @@
             color: var(--ebony);
             margin-bottom: 1rem;
         }
+
+        /* Icon Placeholder Styles */
+        .icon-placeholder {
+            width: 100%;
+            height: 192px; /* h-48 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        /* Premium Icon Placeholder - Teal background, white icons */
+        .icon-placeholder.premium-version {
+            background-color: var(--teal);
+            color: white; /* Icons in white */
+            font-size: 80px; /* Large icon size */
+        }
+        /* Free Icon Placeholder - Softer background, cadet-blue icons */
+        .icon-placeholder.free-version {
+            background-color: #E9E5D9;
+            color: var(--cadet-blue);
+            font-size: 80px; /* Large icon size */
+        }
     </style>
     <title>Catálogo de Plantillas | Mink</title>
 </head>
@@ -51,132 +86,150 @@
     <header class="py-12 text-center">
         <h1 class="text-4xl md:text-5xl font-bold mb-3" style="color: var(--teal);">Catálogo de Plantillas</h1>
         <p class="text-lg max-w-2xl mx-auto" style="color: var(--ebony);">Encuentra el look perfecto para tu marca. Elige una plantilla gratuita o destaca con las ventajas de <strong>Mink+</strong>.</p>
+        <div class="mt-8 flex justify-center gap-4">
+            <a href="#plus" class="px-6 py-3 rounded-lg font-bold text-white" style="background-color: var(--teal);">Ver Mink+</a>
+            <a href="#free" class="px-6 py-3 rounded-lg font-medium" style="background-color: #E9E5D9; color: var(--teal);">Ver Gratuitas</a>
+        </div>
     </header>
 
     <main class="container mx-auto px-4 pb-16">
         <section id="plus" class="mb-16">
             <div class="text-center mb-10">
                 <h2 class="text-3xl font-bold" style="color: var(--teal);">Mink+ | Corporativo y Profesional</h2>
-                <p class="mt-2 text-md" style="color: var(--ebony);">Diseños exclusivos, más personalización y soporte prioritario.</p>
+                <p class="mt-2 text-md" style="color: var(--ebony);">Descubre la combinación perfecta de <strong>3 estilos y 3 tipos de plantilla</strong> para una presencia impactante.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
                 <div class="mink-card bg-white rounded-xl overflow-hidden shadow-md flex flex-col">
-                    <div class="relative">
-                        <img src="multimedia/Minimalist.png" alt="Plantilla Minimalist Grid" class="w-full h-48 object-cover">
-                        <span class="premium-badge text-white text-xs font-bold px-3 py-1 rounded-full absolute top-3 right-3">MINK+</span>
+                    <div class="icon-placeholder premium-version">
+                        <span class="iconify" data-icon="mdi:grid"></span>
+                        <span class="premium-badge text-xs font-bold px-3 py-1 rounded-full absolute top-3 right-3">MINK+</span>
                     </div>
                     <div class="p-5 flex-grow flex flex-col">
-                        <h3 class="template-title">Estilo: Minimalista</h3>
-                        <p class="template-subtitle">Plantilla: Grid</p>
-                        <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">Diseño limpio y ordenado con una estructura de cuadrícula.</p>
+                        <h3 class="template-title">Grid | Minimalista</h3>
+                        <p class="template-subtitle">Organización clara y limpia para tu contenido.</p>
+                        <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">Ideal para mostrar múltiples enlaces de forma concisa y estética. La simplicidad del estilo minimalista realza tu mensaje.</p>
                         <a href="p1.html?id=j%26l" class="mt-auto w-full text-center px-4 py-2 rounded-lg font-bold text-white btn-icon" style="background-color: var(--teal);">Ver Plantilla</a>
                     </div>
                 </div>
 
                 <div class="mink-card bg-white rounded-xl overflow-hidden shadow-md flex flex-col">
-                    <div class="relative">
-                        <img src="multimedia/Glassmorphism.png" alt="Plantilla Glassmorphism Grid" class="w-full h-48 object-cover">
-                        <span class="premium-badge text-white text-xs font-bold px-3 py-1 rounded-full absolute top-3 right-3">MINK+</span>
+                    <div class="icon-placeholder premium-version">
+                        <span class="iconify" data-icon="mdi:blur"></span>
+                        <span class="premium-badge text-xs font-bold px-3 py-1 rounded-full absolute top-3 right-3">MINK+</span>
                     </div>
                     <div class="p-5 flex-grow flex flex-col">
-                        <h3 class="template-title">Estilo: Glassmorphism</h3>
-                        <p class="template-subtitle">Plantilla: Grid</p>
-                        <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">Efecto de cristal esmerilado con estructura de cuadrícula.</p>
+                        <h3 class="template-title">Grid | Glassmorphism</h3>
+                        <p class="template-subtitle">Efecto translúcido y moderno para tus enlaces.</p>
+                        <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">Una rejilla elegante con el distintivo efecto de cristal esmerilado que aporta profundidad y sofisticación.</p>
                         <a href="p2.html?id=j%26l" class="mt-auto w-full text-center px-4 py-2 rounded-lg font-bold text-white btn-icon" style="background-color: var(--teal);">Ver Plantilla</a>
                     </div>
                 </div>
 
                 <div class="mink-card bg-white rounded-xl overflow-hidden shadow-md flex flex-col">
-                    <div class="relative">
-                        <img src="multimedia/Neumorphism.png" alt="Plantilla Neumorphism Grid" class="w-full h-48 object-cover">
-                        <span class="premium-badge text-white text-xs font-bold px-3 py-1 rounded-full absolute top-3 right-3">MINK+</span>
+                    <div class="icon-placeholder premium-version">
+                        <span class="iconify" data-icon="mdi:lightbulb-outline"></span>
+                        <span class="premium-badge text-xs font-bold px-3 py-1 rounded-full absolute top-3 right-3">MINK+</span>
                     </div>
                     <div class="p-5 flex-grow flex flex-col">
-                        <h3 class="template-title">Estilo: Neumorphism</h3>
-                        <p class="template-subtitle">Plantilla: Grid</p>
-                        <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">Elementos suaves y texturizados con estructura de cuadrícula.</p>
+                        <h3 class="template-title">Grid | Neumorphism</h3>
+                        <p class="template-subtitle">Elementos con relieve suave para una interfaz intuitiva.</p>
+                        <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">Un diseño de cuadrícula con la estética de Neumorfismo que ofrece una sensación táctil y moderna.</p>
                         <a href="p3.html?id=j%26l" class="mt-auto w-full text-center px-4 py-2 rounded-lg font-bold text-white btn-icon" style="background-color: var(--teal);">Ver Plantilla</a>
                     </div>
                 </div>
 
                 <div class="mink-card bg-white rounded-xl overflow-hidden shadow-md flex flex-col">
-                    <div class="relative">
-                        <img src="multimedia/Minimalist.png" alt="Plantilla Minimalist Enlace Destacado" class="w-full h-48 object-cover">
-                        <span class="premium-badge text-white text-xs font-bold px-3 py-1 rounded-full absolute top-3 right-3">MINK+</span>
+                    <div class="icon-placeholder premium-version">
+                        <span class="iconify" data-icon="mdi:link-variant"></span>
+                        <span class="premium-badge text-xs font-bold px-3 py-1 rounded-full absolute top-3 right-3">MINK+</span>
                     </div>
                     <div class="p-5 flex-grow flex flex-col">
-                        <h3 class="template-title">Estilo: Minimalista</h3>
-                        <p class="template-subtitle">Plantilla: Enlace Destacado</p>
-                        <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">Diseño minimalista con un enlace visualmente prominente.</p>
+                        <h3 class="template-title">Enlace Destacado | Minimalista</h3>
+                        <p class="template-subtitle">Resalta tu enlace más importante con sutileza.</p>
+                        <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">Un enfoque directo y sin distracciones para tu llamada a la acción principal, en un diseño limpio y moderno.</p>
                         <a href="p4.html?id=j%26l" class="mt-auto w-full text-center px-4 py-2 rounded-lg font-bold text-white btn-icon" style="background-color: var(--teal);">Ver Plantilla</a>
                     </div>
                 </div>
 
                 <div class="mink-card bg-white rounded-xl overflow-hidden shadow-md flex flex-col">
-                    <div class="relative">
-                        <img src="multimedia/Glassmorphism.png" alt="Plantilla Glassmorphism Enlace Destacado" class="w-full h-48 object-cover">
-                        <span class="premium-badge text-white text-xs font-bold px-3 py-1 rounded-full absolute top-3 right-3">MINK+</span>
+                    <div class="icon-placeholder premium-version">
+                        <span class="iconify" data-icon="mdi:link-variant"></span>
+                        <span class="premium-badge text-xs font-bold px-3 py-1 rounded-full absolute top-3 right-3">MINK+</span>
                     </div>
                     <div class="p-5 flex-grow flex flex-col">
-                        <h3 class="template-title">Estilo: Glassmorphism</h3>
-                        <p class="template-subtitle">Plantilla: Enlace Destacado</p>
-                        <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">Efecto de cristal esmerilado con un enlace visualmente prominente.</p>
+                        <h3 class="template-title">Enlace Destacado | Glassmorphism</h3>
+                        <p class="template-subtitle">Efecto cristalino para un enlace inolvidable.</p>
+                        <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">Tu enlace principal cobra vida con un efecto de vidrio translúcido que capturará la atención.</p>
                         <a href="p5.html?id=j%26l" class="mt-auto w-full text-center px-4 py-2 rounded-lg font-bold text-white btn-icon" style="background-color: var(--teal);">Ver Plantilla</a>
                     </div>
                 </div>
 
                 <div class="mink-card bg-white rounded-xl overflow-hidden shadow-md flex flex-col">
-                    <div class="relative">
-                        <img src="multimedia/Neumorphism.png" alt="Plantilla Neumorphism Enlace Destacado" class="w-full h-48 object-cover">
-                        <span class="premium-badge text-white text-xs font-bold px-3 py-1 rounded-full absolute top-3 right-3">MINK+</span>
+                    <div class="icon-placeholder premium-version">
+                        <span class="iconify" data-icon="mdi:link-variant"></span>
+                        <span class="premium-badge text-xs font-bold px-3 py-1 rounded-full absolute top-3 right-3">MINK+</span>
                     </div>
                     <div class="p-5 flex-grow flex flex-col">
-                        <h3 class="template-title">Estilo: Neumorphism</h3>
-                        <p class="template-subtitle">Plantilla: Enlace Destacado</p>
-                        <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">Elementos suaves y texturizados con un enlace visualmente prominente.</p>
+                        <h3 class="template-title">Enlace Destacado | Neumorphism</h3>
+                        <p class="template-subtitle">Un botón principal que se siente premium.</p>
+                        <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">El neumorfismo aplica una sensación de profundidad y relieve a tu enlace principal, haciendo que destaque.</p>
                         <a href="p6.html?id=j%26l" class="mt-auto w-full text-center px-4 py-2 rounded-lg font-bold text-white btn-icon" style="background-color: var(--teal);">Ver Plantilla</a>
                     </div>
                 </div>
 
                 <div class="mink-card bg-white rounded-xl overflow-hidden shadow-md flex flex-col">
-                    <div class="relative">
-                        <img src="multimedia/Minimalist.png" alt="Plantilla Minimalist Logo" class="w-full h-48 object-cover">
-                        <span class="premium-badge text-white text-xs font-bold px-3 py-1 rounded-full absolute top-3 right-3">MINK+</span>
+                    <div class="icon-placeholder premium-version">
+                        <span class="iconify" data-icon="mdi:image-filter-frames"></span>
+                        <span class="premium-badge text-xs font-bold px-3 py-1 rounded-full absolute top-3 right-3">MINK+</span>
                     </div>
                     <div class="p-5 flex-grow flex flex-col">
-                        <h3 class="template-title">Estilo: Minimalista</h3>
-                        <p class="template-subtitle">Plantilla: Logo</p>
-                        <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">Diseño minimalista con enfoque en el logo de la marca.</p>
+                        <h3 class="template-title">Logo | Minimalista</h3>
+                        <p class="template-subtitle">Tu marca, limpia y al frente.</p>
+                        <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">Una plantilla diseñada para que tu logo sea el protagonista, con la elegancia y sobriedad del minimalismo.</p>
                         <a href="p7.html?id=j%26l" class="mt-auto w-full text-center px-4 py-2 rounded-lg font-bold text-white btn-icon" style="background-color: var(--teal);">Ver Plantilla</a>
                     </div>
                 </div>
 
                 <div class="mink-card bg-white rounded-xl overflow-hidden shadow-md flex flex-col">
-                    <div class="relative">
-                        <img src="multimedia/Glassmorphism.png" alt="Plantilla Glassmorphism Logo" class="w-full h-48 object-cover">
-                        <span class="premium-badge text-white text-xs font-bold px-3 py-1 rounded-full absolute top-3 right-3">MINK+</span>
+                    <div class="icon-placeholder premium-version">
+                        <span class="iconify" data-icon="mdi:image-filter-frames"></span>
+                        <span class="premium-badge text-xs font-bold px-3 py-1 rounded-full absolute top-3 right-3">MINK+</span>
                     </div>
                     <div class="p-5 flex-grow flex flex-col">
-                        <h3 class="template-title">Estilo: Glassmorphism</h3>
-                        <p class="template-subtitle">Plantilla: Logo</p>
-                        <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">Efecto de cristal esmerilado con enfoque en el logo de la marca.</p>
+                        <h3 class="template-title">Logo | Glassmorphism</h3>
+                        <p class="template-subtitle">Tu logo con un toque de sofisticación translúcida.</p>
+                        <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">Añade un velo de cristal esmerilado a la sección de tu logo para un efecto visual distintivo y moderno.</p>
                         <a href="p8.html?id=j%26l" class="mt-auto w-full text-center px-4 py-2 rounded-lg font-bold text-white btn-icon" style="background-color: var(--teal);">Ver Plantilla</a>
                     </div>
                 </div>
 
                 <div class="mink-card bg-white rounded-xl overflow-hidden shadow-md flex flex-col">
-                    <div class="relative">
-                        <img src="multimedia/Neumorphism.png" alt="Plantilla Neumorphism Logo" class="w-full h-48 object-cover">
-                        <span class="premium-badge text-white text-xs font-bold px-3 py-1 rounded-full absolute top-3 right-3">MINK+</span>
+                    <div class="icon-placeholder premium-version">
+                        <span class="iconify" data-icon="mdi:image-filter-frames"></span>
+                        <span class="premium-badge text-xs font-bold px-3 py-1 rounded-full absolute top-3 right-3">MINK+</span>
                     </div>
                     <div class="p-5 flex-grow flex flex-col">
-                        <h3 class="template-title">Estilo: Neumorphism</h3>
-                        <p class="template-subtitle">Plantilla: Logo</p>
-                        <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">Elementos suaves y texturizados con enfoque en el logo de la marca.</p>
+                        <h3 class="template-title">Logo | Neumorphism</h3>
+                        <p class="template-subtitle">Tu logo cobra vida con profundidad.</p>
+                        <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">El neumorfismo aporta un sutil relieve a la presentación de tu logo, dándole una presencia destacada y moderna.</p>
                         <a href="p9.html?id=j%26l" class="mt-auto w-full text-center px-4 py-2 rounded-lg font-bold text-white btn-icon" style="background-color: var(--teal);">Ver Plantilla</a>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section class="mb-16 py-8 px-6 rounded-xl text-center shadow-inner" style="background-color: var(--light-blue); border: 2px solid var(--cadet-blue);">
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--ebony);">¡Conviértete en Cliente Mink+ y Disfruta de Más!</h3>
+            <p class="text-lg max-w-2xl mx-auto mb-4" style="color: var(--ebony);">
+                Al adquirir tu primera plantilla Mink+ por solo S/.7 (pago único), te conviertes en un cliente exclusivo.
+                Esto desbloquea un beneficio increíble:
+            </p>
+            <p class="text-2xl font-bold mb-4" style="color: var(--teal);">
+                Todas las plantillas Mink+ futuras y cada cambio en tu link, ¡por solo <span class="text-4xl">S/.1</span>!
+            </p>
+            <p class="text-md italic" style="color: var(--ebony);">
+                Una inversión que crece contigo.
+            </p>
         </section>
 
         <section class="mb-16 py-10 rounded-xl" style="background-color: #E9E5D9;">
@@ -203,34 +256,40 @@
             </div>
         </section>
         
-        <section>
+        <section id="free">
             <div class="text-center mb-10">
                 <h2 class="text-3xl font-bold" style="color: var(--teal);">Mink Gratuito | Creativo y Esencial</h2>
-                <p class="mt-2 text-md" style="color: var(--ebony);">Funcionales, elegantes y perfectas para empezar.</p>
+                <p class="mt-2 text-md" style="color: var(--ebony);">Funcionales, elegantes y perfectas para empezar. Un estilo simple y plano para que tu contenido destaque.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
-                <div class="mink-card bg-white rounded-xl overflow-hidden shadow-md flex flex-col">
-                    <img src="multimedia/Minimalist.png" alt="Plantilla Minimalist" class="w-full h-48 object-cover">
+                <div class="mink-card bg-white rounded-xl overflow-hidden shadow-sm flex flex-col">
+                    <div class="icon-placeholder free-version">
+                        <span class="iconify" data-icon="mdi:square-outline"></span>
+                    </div>
                     <div class="p-5 flex-grow flex flex-col">
-                        <h3 class="text-lg font-bold mb-2" style="color: var(--ebony);">Estilo "Minimalista"</h3>
+                        <h3 class="text-lg font-bold mb-2" style="color: var(--ebony);">Plantilla Minimalista</h3>
                         <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">Diseño limpio y simple, centrado en la usabilidad y la eficiencia.</p>
                         <a href="g1.html?id=j%26l" class="mt-auto w-full text-center px-4 py-2 rounded-lg font-medium text-white btn-icon" style="background-color: var(--cadet-blue);">Ver Plantilla</a>
                     </div>
                 </div>
 
-                <div class="mink-card bg-white rounded-xl overflow-hidden shadow-md flex flex-col">
-                    <img src="multimedia/Flat.png" alt="Plantilla Flat" class="w-full h-48 object-cover">
+                <div class="mink-card bg-white rounded-xl overflow-hidden shadow-sm flex flex-col">
+                    <div class="icon-placeholder free-version">
+                        <span class="iconify" data-icon="mdi:rectangle-outline"></span>
+                    </div>
                     <div class="p-5 flex-grow flex flex-col">
-                        <h3 class="text-lg font-bold mb-2" style="color: var(--ebony);">Estilo "Plano"</h3>
+                        <h3 class="text-lg font-bold mb-2" style="color: var(--ebony);">Plantilla Plana</h3>
                         <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">Colores sólidos, bordes definidos y ausencia de efectos de profundidad.</p>
                         <a href="g2.html?id=j%26l" class="mt-auto w-full text-center px-4 py-2 rounded-lg font-medium text-white btn-icon" style="background-color: var(--cadet-blue);">Ver Plantilla</a>
                     </div>
                 </div>
 
-                <div class="mink-card bg-white rounded-xl overflow-hidden shadow-md flex flex-col">
-                    <img src="multimedia/Skeuomorphism.png" alt="Plantilla Skeuomorphism" class="w-full h-48 object-cover">
+                <div class="mink-card bg-white rounded-xl overflow-hidden shadow-sm flex flex-col">
+                    <div class="icon-placeholder free-version">
+                        <span class="iconify" data-icon="mdi:folder-outline"></span>
+                    </div>
                     <div class="p-5 flex-grow flex flex-col">
-                        <h3 class="text-lg font-bold mb-2" style="color: var(--ebony);">Estilo "Esqueumorfismo"</h3>
+                        <h3 class="text-lg font-bold mb-2" style="color: var(--ebony);">Plantilla Esqueumorfismo</h3>
                         <p class="text-sm mb-4 flex-grow" style="color: var(--ebony);">Elementos que imitan objetos del mundo real para una interfaz familiar.</p>
                         <a href="g3.html?id=j%26l" class="mt-auto w-full text-center px-4 py-2 rounded-lg font-medium text-white btn-icon" style="background-color: var(--cadet-blue);">Ver Plantilla</a>
                     </div>
@@ -240,7 +299,7 @@
     </main>
 
     <footer class="py-8 text-center" style="background-color: var(--teal); color: var(--white-smoke);">
-        <p>© <span id="currentYear"></span> <strong>Mink | Mercado Digital</strong>
+        <p>© <span id="currentYear"></span> <strong>Mink | Mercado Digital</strong></p>
     </footer>
 
     <script>
